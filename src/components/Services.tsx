@@ -6,7 +6,7 @@ const capabilities = [
     title: 'Frontend Engineering',
     headline: 'Performance-Driven Interfaces Built for Scale',
     description: 'I architect responsive, SEO-optimized web applications specializing in Vue.js, Nuxt.js, and React. My focus is on turning complex backend systems into intuitive, high-performance UI components that render quickly and rank perfectly.',
-    image: 'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&q=80&w=2000', // Cinematic Samurai
+    image: 'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&q=75&w=1280', // Cinematic Samurai
     items: [
       'Vue.js (2/3) & Nuxt.js', 'React & TypeScript', 'Tailwind CSS & SCSS',
       'State Management (Pinia/Vuex)', 'TanStack Query', 'Component-Based Architecture',
@@ -19,7 +19,7 @@ const capabilities = [
     title: 'AI / ML Integration',
     headline: 'Automating Workflows with Agentic Intelligence',
     description: 'I design and deploy multi-model AI platforms using OpenAI, Google Gemini, and Anthropic Claude. By building intelligent data pipelines and integrating LLM workflow automation, I streamline redundant tasks and accelerate output.',
-    image: 'https://images.unsplash.com/photo-1535378273068-9bb25ce15e21?auto=format&fit=crop&q=80&w=2000', // Robot Mech Head
+    image: 'https://images.unsplash.com/photo-1535378273068-9bb25ce15e21?auto=format&fit=crop&q=75&w=1280', // Robot Mech Head
     items: [
       'Multi-Model AI Integration', 'LLM Workflow Automation', 'Prompt Engineering',
       'Agentic Platforms (Antigravity)', 'AI Tools (Cursor)', 'Automated SEO & Content Generation',
@@ -32,7 +32,7 @@ const capabilities = [
     title: 'Backend Architecture',
     headline: 'Robust Data Systems & APIs That Power Growth',
     description: 'Beyond the frontend, I engineer reliable backend infrastructure primarily utilizing Python and Django. I specialize in RESTful API development, PostgreSQL database schemas, and event-driven automation using Redis and BullMQ.',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=2000', // Motherboard / Tech
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=75&w=1280', // Motherboard / Tech
     items: [
       'Python & Django', 'RESTful API Integration', 'PostgreSQL Schema Design', 
       'Redis & BullMQ', 'Data Flow Optimization', 'PHP & Java Awareness',
@@ -45,7 +45,7 @@ const capabilities = [
     title: 'Performance & SEO',
     headline: 'Optimized for Core Web Vitals and User Engagement',
     description: 'I take a deeply technical approach to Core Web Vitals optimization to drive organic traffic. From dynamic metadata handling to asset optimization, lazy loading, and code-splitting, I ensure websites pass technical audits with flying colors.',
-    image: 'https://images.unsplash.com/photo-1620025732296-6d1a938c35af?auto=format&fit=crop&q=80&w=2000', // Speed lines / Performance
+    image: 'https://images.unsplash.com/photo-1620025732296-6d1a938c35af?auto=format&fit=crop&q=75&w=1280', // Speed lines / Performance
     items: [
       'Core Web Vitals Optimization', 'LCP, CLS, INP Improvement', 'Asset Optimization',
       'Dynamic SEO Metadata', 'Code-Splitting', 'Lazy Loading',
@@ -57,8 +57,11 @@ const capabilities = [
 
 export default function Services() {
   return (
-    <section className="bg-[#000000] text-white w-full border-t border-[#333333] mt-12 bg-black relative" id="expertise">
-      {/* Intro Section */}
+    <section
+      className="bg-[#000000] text-white w-full border-t border-[#333333] mt-12 bg-black relative"
+      id="expertise"
+      style={{ contentVisibility: 'auto', containIntrinsicSize: '1px 3200px' }}
+    >
       <div className="py-24 px-6 lg:px-12 max-w-7xl mx-auto relative z-20 bg-black">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div className="flex flex-col gap-4">
@@ -75,7 +78,6 @@ export default function Services() {
         </div>
       </div>
 
-      {/* The Stacked Panels */}
       <div className="w-full pb-0 bg-transparent">
         {capabilities.map((cap, i) => (
           <div key={cap.id} className="relative w-full">
@@ -107,13 +109,15 @@ export default function Services() {
                       src={cap.image} 
                       alt={cap.title} 
                       className="w-full h-full object-cover object-center mix-blend-luminosity opacity-[0.9] contrast-[1.2] brightness-75 drop-shadow-2xl"
+                      loading="lazy"
+                      decoding="async"
+                      sizes="(min-width: 1024px) 65vw, 100vw"
                     />
                   </motion.div>
                 </div>
               )}
 
-              {/* Small grit/noise texture instead of dot grid to maintain premium film feel */}
-              <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none z-10" style={{ backgroundImage: "url('https://futurecraft.agency/wp-content/uploads/2024/08/noise.gif')", backgroundSize: '200px' }}></div>
+              <div className="noise-overlay absolute inset-0 opacity-[0.18] mix-blend-overlay pointer-events-none z-10" aria-hidden="true"></div>
               
               {/* Text Layer - STARK WHITE */}
               <div className="px-6 lg:px-12 pb-[10vh] relative z-20 w-fit">

@@ -29,8 +29,11 @@ const projects = [
 
 export default function SelectedWork() {
   return (
-    <section id="work" className="bg-black text-white py-24 px-6 lg:px-[60px] pb-12 w-full h-auto">
-      {/* Header Area */}
+    <section
+      id="work"
+      className="bg-black text-white py-24 px-6 lg:px-[60px] pb-12 w-full h-auto"
+      style={{ contentVisibility: 'auto', containIntrinsicSize: '1px 1800px' }}
+    >
       <div className="w-full flex flex-col md:flex-row mb-16 gap-12">
         <div className="flex-1">
           <p className="text-sm font-medium tracking-wide uppercase mb-4 border-b border-transparent hover:border-white inline-block cursor-pointer transition-colors duration-300">
@@ -91,6 +94,9 @@ export default function SelectedWork() {
                 src={project.image} 
                 alt={project.title} 
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+                sizes="100vw"
               />
             </div>
             

@@ -1,4 +1,4 @@
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 
 const experiences = [
   {
@@ -25,15 +25,19 @@ const experiences = [
 ];
 
 export default function Experience() {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
-    <section className="py-24 overflow-hidden w-full bg-[#111111] flex flex-col relative text-white">
+    <section
+      className="py-24 overflow-hidden w-full bg-[#111111] flex flex-col relative text-white"
+      style={{ contentVisibility: 'auto', containIntrinsicSize: '1px 1200px' }}
+    >
       <div className="relative w-full overflow-hidden flex whitespace-nowrap mb-24">
-        {/* We use two sets of text to create a seamless infinite scroll effect */}
         <motion.div 
           className="flex whitespace-nowrap text-[22vw] md:text-[20vw] font-bold text-white/5 uppercase tracking-tighter leading-none"
-          animate={{ x: ["0%", "-50%"] }} // Adjust the translate value based on the text width
+          animate={prefersReducedMotion ? { x: 0 } : { x: ["0%", "-50%"] }}
           transition={{
-            repeat: Infinity,
+            repeat: prefersReducedMotion ? 0 : Infinity,
             ease: "linear",
             duration: 15
           }}
@@ -48,7 +52,7 @@ export default function Experience() {
           {experiences.map((exp, index) => (
              <motion.div 
                key={index}
-               initial={{ opacity: 0, y: 30 }}
+               initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true, margin: "-10%" }}
                transition={{ duration: 0.8, delay: index * 0.1 }}
