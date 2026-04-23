@@ -141,7 +141,7 @@ export default function Hero() {
           style={{ background: 'radial-gradient(circle, rgba(255,0,0,0.16) 0%, rgba(255,255,255,0.06) 45%, rgba(255,0,0,0) 72%)' }}
         />
 
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[17] h-[30vh] bg-gradient-to-t from-[#080808]/52 via-[#080808]/24 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[17] h-[30vh] bg-gradient-to-t from-[#080808] via-[#080808]/58 to-transparent" />
 
         <div
           className="pointer-events-none absolute inset-0 z-[18] opacity-[0.04] mix-blend-screen"
