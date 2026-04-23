@@ -2,11 +2,7 @@ import { motion } from 'motion/react';
 
 export default function Footer() {
   return (
-    <footer
-      id="contact"
-      className="bg-[#000000] border-t border-[#333333] pt-32 pb-12 overflow-hidden px-6 lg:px-12"
-      style={{ contentVisibility: 'auto', containIntrinsicSize: '1px 600px' }}
-    >
+    <footer id="contact" className="bg-[#000000] border-t border-[#333333] pt-32 pb-12 overflow-hidden px-6 lg:px-12">
       <div className="max-w-7xl mx-auto flex flex-col items-center relative">
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
