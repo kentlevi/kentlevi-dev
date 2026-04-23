@@ -4,18 +4,22 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --color-brand: #E82B00;
+  --color-brand: #FF0000;
+  --color-primary: #FF0000;
+  --color-secondary: #1A1A1A;
+  --color-neutral: #080808;
+  --color-tertiary: #FFFFFF;
 }
 
 @layer base {
   body {
-    @apply bg-[#000000] text-[#FFFFFF];
+    @apply bg-[#080808] text-[#FFFFFF];
     font-family: "Inter", sans-serif;
     overflow-x: clip;
   }
   
   ::selection {
-    @apply bg-[#E82B00] text-white;
+    @apply bg-[#FF0000] text-[#FFFFFF];
   }
 }
 
@@ -54,14 +58,14 @@ html.lenis, html.lenis body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: #080808;
 }
 ::-webkit-scrollbar-thumb {
-  background: #333333;
+  background: #1A1A1A;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #E82B00;
+  background: #FF0000;
 }
 
 /* Base Theme Utilities with Authentic Styling */
@@ -77,11 +81,11 @@ html.lenis, html.lenis body {
 }
 
 .project-line {
-  border-bottom: 2px solid #333333;
+  border-bottom: 2px solid #1A1A1A;
 }
 
 .dot-grid {
-  background-image: radial-gradient(#333333 1px, transparent 1px);
+  background-image: radial-gradient(#1A1A1A 1px, transparent 1px);
   background-size: 20px 20px;
 }
 
@@ -90,7 +94,7 @@ html.lenis, html.lenis body {
 }
 
 .hover-brand:hover {
-  color: #E82B00;
+  color: #FF0000;
 }
 
 .btn-brand {
@@ -99,7 +103,7 @@ html.lenis, html.lenis body {
 }
 
 .btn-brand:hover {
-  background-color: #E82B00;
-  border-color: #E82B00;
+  background-color: #FF0000;
+  border-color: #FF0000;
   color: #FFFFFF;
 }

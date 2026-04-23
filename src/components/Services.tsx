@@ -2,191 +2,225 @@ import { motion } from 'motion/react';
 
 const capabilities = [
   {
-    id: "01",
+    id: '01',
+    mark: 'UI',
     title: 'Frontend Engineering',
-    headline: 'Performance-Driven Interfaces Built for Scale',
-    description: 'I architect responsive, SEO-optimized web applications specializing in Vue.js, Nuxt.js, and React. My focus is on turning complex backend systems into intuitive, high-performance UI components that render quickly and rank perfectly.',
-    image: 'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&q=80&w=2000', // Cinematic Samurai
+    image: '/images/cutouts/robot-torso.png',
+    imageClass: 'right-[-7vw] top-[-8vh] h-[72vh] max-h-none md:h-[88vh]',
+    tags: ['Vue', 'Nuxt', 'React', 'Core Web Vitals'],
+    headline: 'Performance-driven interfaces built for scale',
+    description:
+      'I architect responsive, SEO-optimized web applications in Vue, Nuxt, React, and TypeScript. The work focuses on fast rendering, clean component boundaries, and interfaces that stay maintainable as products grow.',
     items: [
-      'Vue.js (2/3) & Nuxt.js', 'React & TypeScript', 'Tailwind CSS & SCSS',
-      'State Management (Pinia/Vuex)', 'TanStack Query', 'Component-Based Architecture',
-      'SSR & SSG Implementation'
+      'Vue.js (2/3) & Nuxt.js',
+      'React & TypeScript',
+      'Tailwind CSS & SCSS',
+      'State Management (Pinia/Vuex)',
+      'TanStack Query',
+      'Component-Based Architecture',
+      'SSR & SSG Implementation',
     ],
-    bgGradient: 'from-[#F12E03] to-[#FF5513]'
   },
   {
-    id: "02",
+    id: '02',
+    mark: 'AI',
     title: 'AI / ML Integration',
-    headline: 'Automating Workflows with Agentic Intelligence',
-    description: 'I design and deploy multi-model AI platforms using OpenAI, Google Gemini, and Anthropic Claude. By building intelligent data pipelines and integrating LLM workflow automation, I streamline redundant tasks and accelerate output.',
-    image: 'https://images.unsplash.com/photo-1535378273068-9bb25ce15e21?auto=format&fit=crop&q=80&w=2000', // Robot Mech Head
+    image: '/images/cutouts/robot-profile.png',
+    imageClass: 'right-[4vw] top-[-2vh] h-[64vh] max-h-none md:h-[78vh]',
+    tags: ['OpenAI', 'Gemini', 'Claude', 'Automation'],
+    headline: 'Workflow automation powered by practical AI systems',
+    description:
+      'I design multi-model AI features with OpenAI, Gemini, and Claude, then connect them to real product workflows. That includes prompt systems, content automation, event-driven publishing, and internal tools that reduce repetitive work.',
     items: [
-      'Multi-Model AI Integration', 'LLM Workflow Automation', 'Prompt Engineering',
-      'Agentic Platforms (Antigravity)', 'AI Tools (Cursor)', 'Automated SEO & Content Generation',
-      'Event-Driven AI Publishing'
+      'Multi-Model AI Integration',
+      'LLM Workflow Automation',
+      'Prompt Engineering',
+      'Agentic Platforms',
+      'AI Tools',
+      'Automated SEO & Content Generation',
+      'Event-Driven AI Publishing',
     ],
-    bgGradient: 'from-[#E82B00] to-[#E82B00]' 
   },
   {
-    id: "03",
+    id: '03',
+    mark: 'API',
     title: 'Backend Architecture',
-    headline: 'Robust Data Systems & APIs That Power Growth',
-    description: 'Beyond the frontend, I engineer reliable backend infrastructure primarily utilizing Python and Django. I specialize in RESTful API development, PostgreSQL database schemas, and event-driven automation using Redis and BullMQ.',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=2000', // Motherboard / Tech
+    image: '/images/cutouts/operator-laptop.png',
+    imageClass: 'left-[-10vw] top-[1vh] h-[62vh] max-h-none md:h-[78vh]',
+    tags: ['Django', 'PostgreSQL', 'Redis', 'APIs'],
+    headline: 'Reliable data systems and APIs that support growth',
+    description:
+      'Beyond the interface, I build the backend foundations that keep products stable. My work covers Django and Python APIs, PostgreSQL schema design, queue-driven processing, and integrations that keep data moving cleanly.',
     items: [
-      'Python & Django', 'RESTful API Integration', 'PostgreSQL Schema Design', 
-      'Redis & BullMQ', 'Data Flow Optimization', 'PHP & Java Awareness',
-      'Agile/Scrum CI/CD Workflows'
+      'Python & Django',
+      'RESTful API Integration',
+      'PostgreSQL Schema Design',
+      'Redis & BullMQ',
+      'Data Flow Optimization',
+      'PHP & Java Awareness',
+      'Agile/Scrum CI/CD Workflows',
     ],
-    bgGradient: 'from-[#F12E03] to-[#FF5513]'
   },
   {
-    id: "04",
+    id: '04',
+    mark: 'SEO',
     title: 'Performance & SEO',
-    headline: 'Optimized for Core Web Vitals and User Engagement',
-    description: 'I take a deeply technical approach to Core Web Vitals optimization to drive organic traffic. From dynamic metadata handling to asset optimization, lazy loading, and code-splitting, I ensure websites pass technical audits with flying colors.',
-    image: 'https://images.unsplash.com/photo-1620025732296-6d1a938c35af?auto=format&fit=crop&q=80&w=2000', // Speed lines / Performance
+    image: '/images/cutouts/samurai-swords.png',
+    imageClass: 'left-[-8vw] top-[-3vh] h-[68vh] max-h-none md:h-[82vh]',
+    tags: ['LCP', 'CLS', 'Metadata', 'Accessibility'],
+    headline: 'Optimized for Core Web Vitals and organic reach',
+    description:
+      'I treat performance as product quality. From LCP and CLS improvements to metadata systems, code-splitting, lazy loading, and asset strategy, I make pages faster, clearer, and easier to rank.',
     items: [
-      'Core Web Vitals Optimization', 'LCP, CLS, INP Improvement', 'Asset Optimization',
-      'Dynamic SEO Metadata', 'Code-Splitting', 'Lazy Loading',
-      'Responsive Web Accessibility (WCAG)'
+      'Core Web Vitals Optimization',
+      'LCP, CLS, INP Improvement',
+      'Asset Optimization',
+      'Dynamic SEO Metadata',
+      'Code-Splitting',
+      'Lazy Loading',
+      'Responsive Web Accessibility',
     ],
-    bgGradient: 'from-[#E82B00] to-[#E82B00]'
-  }
+  },
 ];
 
 export default function Services() {
   return (
-    <section className="bg-[#000000] text-white w-full border-t border-[#333333] mt-12 bg-black relative" id="expertise">
-      {/* Intro Section */}
-      <div className="py-24 px-6 lg:px-12 max-w-7xl mx-auto relative z-20 bg-black">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="flex flex-col gap-4">
-            <p className="text-sm border-b border-transparent hover:border-white w-max cursor-pointer transition-colors duration-300">My Expertise</p>
-            <h2 className="text-5xl md:text-6xl font-bold uppercase tracking-tight text-white mb-2 pb-4">
-              専門分野
-            </h2>
+    <section className="relative mt-12 w-full border-t border-[#1A1A1A] bg-[#080808] text-[#FFFFFF]" id="expertise">
+      <div className="relative z-20 mx-auto max-w-7xl bg-[#080808] px-6 py-24 lg:px-12 lg:py-32">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.15fr)] lg:items-end lg:gap-16">
+          <div className="relative flex min-w-0 flex-col justify-end gap-6 lg:min-h-[360px] lg:border-r lg:border-[#1A1A1A] lg:pr-14">
+            <div>
+              <p className="mb-3 w-max border-b border-[#FF0000] pb-3 text-xs font-bold uppercase tracking-[0.28em] text-white/62">
+                Core Capabilities
+              </p>
+              <h2 className="max-w-full text-6xl font-bold uppercase leading-[0.86] tracking-tight text-white sm:text-7xl md:text-8xl lg:text-[4.7rem] xl:text-[5.5rem]">
+                Expertise
+              </h2>
+            </div>
+
+            <p className="max-w-md text-sm font-medium leading-relaxed text-white/50 md:text-base">
+              Focused engineering across the layers that shape fast, reliable, and scalable digital products.
+            </p>
           </div>
-          <div className="flex items-end">
-            <h2 className="text-4xl md:text-[3.5rem] font-bold uppercase tracking-tighter text-white leading-[1.1] pb-4">
-              Crafting Digital Experiences Through Vision, Design, and AI
+
+          <div className="flex min-w-0 flex-col justify-center gap-7 lg:min-h-[360px] lg:pl-2">
+            <h2 className="max-w-4xl text-4xl font-bold uppercase leading-[0.96] tracking-tight text-white sm:text-5xl lg:text-[3.15rem] xl:text-[3.75rem]">
+              Fast interfaces.<br />
+              Resilient systems.<br />
+              Practical AI workflows.
             </h2>
+            <p className="max-w-3xl text-base font-medium leading-relaxed text-white/60 md:text-lg">
+              I connect polished frontend execution with backend clarity and automation strategy, turning product ideas into experiences that are easy to use, maintain, and scale.
+            </p>
           </div>
         </div>
       </div>
 
-      {/* The Stacked Panels */}
-      <div className="w-full pb-0 bg-transparent">
+      <div className="w-full bg-transparent pb-0">
         {capabilities.map((cap, i) => (
           <div key={cap.id} className="relative w-full">
-            
-            {/* The Sticky Banner Container */}
-            <div className={`sticky ${i === 0 ? 'top-0' : 'top-0'} w-full h-[75vh] flex flex-col justify-end overflow-hidden z-0 bg-[#F43C12]`}>
-              
-              {/* Massive background japanese characters - SOLID BLACK */}
-              <div className="absolute inset-0 flex items-center justify-center md:justify-end pr-0 md:pr-[5%] pointer-events-none z-0 overflow-hidden">
-                <span className="text-[120vw] md:text-[80vw] font-black text-[#0B0B0B] leading-none tracking-tighter transform md:translate-x-1/4 select-none">
-                  {['ン ク', 'ョ ン', 'デ タ', 'パ フ'][i] || 'チ ク'}
+            <div className="sticky top-0 z-0 flex h-[75vh] w-full flex-col justify-end overflow-hidden bg-[#FF0000]">
+              <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-end overflow-hidden">
+                <span className="select-none whitespace-nowrap text-[84vw] font-black uppercase leading-none tracking-tighter text-[#080808]/70 sm:text-[78vw] md:text-[72vw] lg:text-[66vw] xl:text-[58vw]">
+                  {cap.mark}
                 </span>
               </div>
 
-              {/* Character Image matching exact cinematic reference styling */}
-              {cap.image && (
-                <div className="absolute top-0 right-0 w-full md:w-[65%] h-full z-10 pointer-events-none flex justify-end items-center overflow-hidden">
-                  <motion.div
-                    initial={{ scale: 1.05, opacity: 0, x: 50 }}
-                    whileInView={{ scale: 1, opacity: 1, x: 0 }}
-                    transition={{ duration: 1.2, ease: "easeOut" }}
-                    className="w-[120%] md:w-[110%] h-full relative"
-                    style={{
-                      WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 30%, black 100%)',
-                      maskImage: 'linear-gradient(to right, transparent 0%, black 30%, black 100%)'
-                    }}
-                  >
-                    <img 
-                      src={cap.image} 
-                      alt={cap.title} 
-                      className="w-full h-full object-cover object-center mix-blend-luminosity opacity-[0.9] contrast-[1.2] brightness-75 drop-shadow-2xl"
-                    />
-                  </motion.div>
+              <img
+                src={cap.image}
+                alt=""
+                aria-hidden="true"
+                className={`pointer-events-none absolute z-[14] hidden object-contain object-bottom opacity-90 saturate-0 contrast-125 mix-blend-multiply md:block ${cap.imageClass}`}
+              />
+
+              <div className="pointer-events-none absolute inset-0 z-[15] bg-gradient-to-r from-[#FF0000]/0 via-[#FF0000]/10 to-[#FF0000]/70" />
+
+              <div
+                className="pointer-events-none absolute inset-0 z-[16] opacity-[0.03] mix-blend-overlay"
+                style={{
+                  backgroundImage: "url('https://futurecraft.agency/wp-content/uploads/2024/08/noise.gif')",
+                  backgroundSize: '200px',
+                }}
+              />
+
+              <div className="relative z-20 w-full px-6 pb-[10vh] lg:px-12">
+                <p className="mb-4 font-mono text-lg font-bold tracking-[0.14em] text-white drop-shadow-md md:text-2xl">
+                  // {cap.id}
+                </p>
+                <motion.h1
+                  initial={{ y: 50, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.8, ease: 'easeOut' }}
+                  className="whitespace-nowrap text-[clamp(2.6rem,10vw,9rem)] font-bold uppercase leading-[0.9] tracking-tighter text-white drop-shadow-xl"
+                >
+                  {cap.title}
+                </motion.h1>
+                <div className="mt-6 flex max-w-3xl flex-wrap gap-2">
+                  {cap.tags.map((tag) => (
+                    <span key={tag} className="border border-white/22 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-white/82">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="relative z-10 -mt-[1px] w-full bg-[#080808] pb-12 pt-24 lg:pb-24">
+              <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 lg:grid-cols-12 lg:px-12">
+                <div className="hidden lg:col-span-4 lg:block">
+                  <div className="sticky top-32 h-max">
+                    <span
+                      className="text-[180px] font-black leading-none text-transparent opacity-95 md:text-[240px]"
+                      style={{
+                        WebkitTextStroke: '2px rgba(255,255,255,0.16)',
+                        textShadow: '0 0 32px rgba(255,255,255,0.04)',
+                      }}
+                    >
+                      {cap.id}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="col-span-1 lg:col-span-8">
+                  <h2 className="mb-8 max-w-4xl pr-0 text-3xl font-bold uppercase leading-[1.08] tracking-tight sm:text-4xl md:text-5xl">
+                    {cap.headline}
+                  </h2>
+                  <p className="mb-12 max-w-3xl text-base leading-relaxed text-gray-400 md:text-lg">
+                    {cap.description}
+                  </p>
+
+                  <div className="flex flex-col border-t border-[#1A1A1A]">
+                    {cap.items.map((item, index) => (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: index * 0.05 }}
+                        key={item}
+                        className="group flex cursor-pointer items-center justify-between gap-4 border-b border-[#1A1A1A] py-6 transition-all duration-300 hover:bg-[#FF0000] md:py-8 md:hover:-mx-6 md:hover:px-6"
+                      >
+                        <span className="min-w-0 break-words text-lg font-bold leading-snug tracking-tight text-[#FFFFFF] transition-colors sm:text-xl md:text-[1.35rem]">
+                          {item}
+                        </span>
+                        <span className="font-mono text-sm opacity-50 transition-colors group-hover:text-[#FFFFFF] group-hover:opacity-100">
+                          0{index + 1}
+                        </span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {i !== capabilities.length - 1 && (
+                <div className="mt-24 w-full">
+                  <div className="w-full border-t border-[#1A1A1A]" />
+                  <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-8 text-sm uppercase tracking-[0.14em] opacity-60 sm:flex-row sm:items-center sm:justify-between lg:px-12">
+                    <span>Capability Stack</span>
+                    <span>{cap.title}</span>
+                  </div>
                 </div>
               )}
-
-              {/* Small grit/noise texture instead of dot grid to maintain premium film feel */}
-              <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none z-10" style={{ backgroundImage: "url('https://futurecraft.agency/wp-content/uploads/2024/08/noise.gif')", backgroundSize: '200px' }}></div>
-              
-              {/* Text Layer - STARK WHITE */}
-              <div className="px-6 lg:px-12 pb-[10vh] relative z-20 w-fit">
-                 <p className="font-mono text-xl md:text-2xl mb-4 font-bold tracking-widest text-white drop-shadow-md">// {cap.id}</p>
-                 <motion.h1 
-                    initial={{ y: 50, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-[13vw] md:text-[8vw] leading-[0.9] uppercase font-bold tracking-tighter text-white whitespace-nowrap drop-shadow-xl"
-                 >
-                   {cap.title}
-                 </motion.h1>
-              </div>
-
-              {/* Vertical Side Badge */}
-              <div className="absolute right-0 top-[35%] bg-white text-black px-4 py-8 flex flex-col items-center justify-between gap-12 z-30 hidden md:flex">
-                <span className="font-bold text-2xl">W.</span>
-                <span className="vertical-label font-bold tracking-widest text-sm transform rotate-180" style={{ writingMode: 'vertical-rl' }}>Honors</span>
-              </div>
             </div>
-
-            {/* The Scrolling Details Container */}
-            <div className="relative w-full bg-[#000000] z-10 pt-24 pb-12 lg:pb-24 -mt-[1px]">
-               <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12">
-                  
-                  {/* Left Column - Sticky Number */}
-                  <div className="lg:col-span-4 hidden lg:block">
-                     <div className="sticky top-32 h-max">
-                        <span className="text-[140px] md:text-[180px] font-bold leading-none text-transparent" style={{ WebkitTextStroke: '2px rgba(255,255,255,0.08)' }}>
-                          {cap.id}
-                        </span>
-                     </div>
-                  </div>
-
-                  {/* Right Column - Content */}
-                  <div className="lg:col-span-8 col-span-1">
-                     <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight leading-[1.1] mb-8 pr-4">
-                       {cap.headline}
-                     </h2>
-                     <p className="text-base md:text-lg text-gray-400 mb-12 max-w-3xl leading-relaxed">
-                       {cap.description}
-                     </p>
-
-                     <div className="flex flex-col border-t border-[#333333]">
-                        {cap.items.map((item, index) => (
-                           <motion.div 
-                             initial={{ opacity: 0, y: 10 }}
-                             whileInView={{ opacity: 1, y: 0 }}
-                             viewport={{ once: true }}
-                             transition={{ duration: 0.5, delay: index * 0.05 }}
-                             key={item} 
-                             className="flex justify-between items-center py-6 md:py-8 border-b border-[#333333] hover:bg-[#E82B00] hover:-mx-6 hover:px-6 transition-all duration-300 cursor-pointer group"
-                           >
-                              <span className="text-xl md:text-[1.35rem] font-bold tracking-tight text-white group-hover:text-black transition-colors">{item}</span>
-                              <span className="font-mono text-sm opacity-50 group-hover:text-black group-hover:opacity-100 transition-colors">0{index + 1}</span>
-                           </motion.div>
-                        ))}
-                     </div>
-                  </div>
-               </div>
-
-               {/* Section Divider (only if not the last capability) */}
-               {i !== capabilities.length - 1 && (
-                 <div className="w-full mt-24">
-                   <div className="border-t border-[#333333] w-full"></div>
-                   <div className="max-w-7xl mx-auto px-6 lg:px-12 py-8 flex justify-between items-center text-[15px] uppercase tracking-widest opacity-60">
-                     <span>My Expertise</span>
-                     <span>専門分野</span>
-                   </div>
-                 </div>
-               )}
-            </div>
-
           </div>
         ))}
       </div>

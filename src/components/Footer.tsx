@@ -2,42 +2,60 @@ import { motion } from 'motion/react';
 
 export default function Footer() {
   return (
-    <footer id="contact" className="bg-[#000000] border-t border-[#333333] pt-32 pb-12 overflow-hidden px-6 lg:px-12">
-      <div className="max-w-7xl mx-auto flex flex-col items-center relative">
-        <motion.p 
+    <footer id="contact" className="overflow-hidden border-t border-[#1A1A1A] bg-[#080808] px-6 pb-12 pt-32 lg:px-12">
+      <div className="relative flex flex-col items-center">
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.12, 0.75, 0.4, 1] }}
-          className="text-[10px] font-bold tracking-[0.4em] uppercase opacity-40 mb-12 text-center text-white"
+          className="mb-8 max-w-3xl text-center text-[10px] font-bold uppercase leading-relaxed tracking-[0.18em] text-[#FFFFFF]/58 sm:tracking-[0.28em]"
         >
-          New Business Inquiries
+          Available for select product builds, technical partnerships, and AI-enabled workflows.
         </motion.p>
-        
-        <motion.a 
+
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.12, 0.75, 0.4, 1] }}
+          className="mb-12 max-w-2xl text-center text-base font-medium leading-relaxed text-[#FFFFFF]/62 md:text-lg"
+        >
+          Bring the product challenge, platform idea, or automation bottleneck. I will help turn it into a fast, polished, production-ready experience.
+        </motion.p>
+
+        <motion.a
           href="mailto:hello@designbybrandin.com"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.12, 0.75, 0.4, 1] }}
-          className="group relative inline-block text-center w-full mb-12"
+          className="group relative mb-12 inline-block w-full text-center"
         >
-          <span className="text-[18vw] leading-none font-bold block uppercase group-hover:text-[#E82B00] text-white transition-colors duration-500 ease-out whitespace-nowrap">
-            Let's Talk
+          <span className="block whitespace-nowrap text-center text-[16vw] font-bold uppercase leading-[0.82] tracking-tight text-[#FFFFFF] transition-colors duration-500 ease-out group-hover:text-[#FF0000]">
+            Let's Build
           </span>
         </motion.a>
-        
-        <div className="w-full flex flex-col md:flex-row justify-between items-center text-xs font-bold uppercase tracking-widest text-[#999999] mt-32">
+
+        <div className="mt-24 flex w-full flex-col items-center justify-between gap-4 text-center text-xs font-bold uppercase tracking-[0.14em] text-[#FFFFFF]/55 md:mt-32 md:flex-row md:text-left">
           <p>© {new Date().getFullYear()} Kent Levi Cadungog.</p>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
+          <div className="mt-4 flex flex-wrap justify-center gap-6 md:mt-0">
+            <a href="#" className="transition-colors hover:text-white">
+              LinkedIn
+            </a>
+            <a href="mailto:hello@designbybrandin.com" className="transition-colors hover:text-white">
+              Email
+            </a>
+            <a href="#work" className="transition-colors hover:text-white">
+              Work
+            </a>
           </div>
         </div>
 
-        <div className="absolute left-0 bottom-12 hidden lg:flex items-end space-x-12 opacity-30 text-white">
-           <div className="vertical-label text-[9px] uppercase tracking-[0.5em] font-bold h-32 flex justify-center">
-             Scroll to explore
-           </div>
+        <div className="absolute bottom-12 left-0 hidden items-end space-x-12 text-white opacity-30 lg:flex">
+          <div className="vertical-label flex h-32 justify-center text-[9px] font-bold uppercase tracking-[0.5em]">
+            Built to perform
+          </div>
         </div>
       </div>
     </footer>

@@ -40,7 +40,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#000000] text-[#FFFFFF] font-sans selection:bg-[#E82B00] selection:text-[#FFFFFF]">
+    <div className="min-h-screen bg-[#080808] text-[#FFFFFF] font-sans selection:bg-[#FF0000] selection:text-[#FFFFFF]">
       {/* Global Noise Overlay */}
       <div 
         className="fixed inset-0 pointer-events-none z-[9999] opacity-[0.04]"
@@ -55,7 +55,7 @@ export default function App() {
 
       {/* Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-[#E82B00] origin-left z-50 mix-blend-normal"
+        className="fixed top-0 left-0 right-0 h-1 bg-[#FF0000] origin-left z-50 mix-blend-normal"
         style={{ scaleX }}
       />
       
