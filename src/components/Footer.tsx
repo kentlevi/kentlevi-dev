@@ -1,6 +1,88 @@
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
+import { useEffect, useRef, useState } from 'react';
+
+const SCRAMBLE_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+
+function useScrambleText(text: string, trigger: number, enabled: boolean) {
+  const [displayText, setDisplayText] = useState(text);
+
+  useEffect(() => {
+    if (!enabled) {
+      setDisplayText(text);
+      return;
+    }
+
+    let frame = 0;
+    const letters = text.split('');
+    const intervalId = window.setInterval(() => {
+      frame += 1;
+      const reveal = frame / 3;
+
+      const next = letters
+        .map((char, index) => {
+          if (char === ' ' || char === "'") {
+            return char;
+          }
+
+          if (index < reveal) {
+            return char;
+          }
+
+          return SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
+        })
+        .join('');
+
+      setDisplayText(next);
+
+      if (reveal >= letters.length) {
+        window.clearInterval(intervalId);
+        setDisplayText(text);
+      }
+    }, 40);
+
+    return () => {
+      window.clearInterval(intervalId);
+    };
+  }, [enabled, text, trigger]);
+
+  return displayText;
+}
 
 export default function Footer() {
+  const prefersReducedMotion = useReducedMotion();
+  const footerCtaRef = useRef<HTMLAnchorElement | null>(null);
+  const [scrambleTick, setScrambleTick] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const scrambledLabel = useScrambleText("Let's Build", scrambleTick, !prefersReducedMotion && scrambleTick > 0);
+
+  useEffect(() => {
+    if (prefersReducedMotion || !footerCtaRef.current) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry) {
+          return;
+        }
+
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+          setScrambleTick((value) => value + 1);
+        } else if (!entry.isIntersecting && isVisible) {
+          setIsVisible(false);
+        }
+      },
+      { threshold: 0.55 },
+    );
+
+    observer.observe(footerCtaRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [isVisible, prefersReducedMotion]);
+
   return (
     <footer id="contact" className="overflow-hidden border-t border-[#1A1A1A] bg-[#080808] px-6 pb-12 pt-32 lg:px-12">
       <div className="relative flex flex-col items-center">
@@ -25,15 +107,17 @@ export default function Footer() {
         </motion.p>
 
         <motion.a
+          ref={footerCtaRef}
           href="mailto:kentlevicadungog@gmail.com"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.12, 0.75, 0.4, 1] }}
+          onClick={!prefersReducedMotion ? () => setScrambleTick((value) => value + 1) : undefined}
           className="group relative mb-12 inline-block w-full text-center"
         >
           <span className="block whitespace-nowrap text-center text-[16vw] font-bold uppercase leading-[0.82] tracking-tight text-[#FFFFFF] transition-colors duration-500 ease-out group-hover:text-[#FF0000]">
-            Let's Build
+            {prefersReducedMotion ? "Let's Build" : scrambledLabel}
           </span>
         </motion.a>
 

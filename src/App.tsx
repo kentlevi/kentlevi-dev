@@ -42,14 +42,14 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#080808] text-[#FFFFFF] font-sans selection:bg-[#FF0000] selection:text-[#FFFFFF]">
       {/* Global Noise Overlay */}
-      <div 
-        className="fixed inset-0 pointer-events-none z-[9999] opacity-[0.04]"
+      <div
+        className="fixed inset-0 pointer-events-none z-[9999] opacity-[0.035]"
         style={{
-          backgroundImage: "url('https://futurecraft.agency/wp-content/uploads/2024/08/noise.gif')",
+          backgroundImage:
+            'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.08) 1px, transparent 0)',
           backgroundRepeat: 'repeat',
           backgroundPosition: '0 0',
-          backgroundSize: '480px',
-          backgroundAttachment: 'fixed',
+          backgroundSize: '6px 6px',
         }}
       />
 

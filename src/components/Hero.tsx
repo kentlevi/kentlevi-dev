@@ -34,9 +34,7 @@ function createSakura(selector: string, options: SakuraOptions): SakuraControlle
     const color = options.colors[Math.floor(Math.random() * options.colors.length)];
     const fallDuration = (8 + Math.random() * 5) * options.fallSpeed;
     const sway = Math.floor(Math.random() * 9);
-    const blow = ['blow-soft-left', 'blow-medium-left', 'blow-soft-right', 'blow-medium-right'][
-      Math.floor(Math.random() * 4)
-    ];
+    const blow = ['blow-soft-left', 'blow-medium-left', 'blow-soft-right', 'blow-medium-right'][Math.floor(Math.random() * 4)];
 
     petal.className = `sakura ${options.className}`;
     petal.style.left = `${Math.random() * 100}%`;
@@ -108,10 +106,7 @@ export default function Hero() {
   }, [prefersReducedMotion]);
 
   return (
-    <section
-      ref={heroRef}
-      className="relative flex h-[100svh] w-full items-center justify-between overflow-hidden bg-[#080808]"
-    >
+    <section ref={heroRef} className="relative flex h-[100svh] w-full items-center justify-between overflow-hidden bg-[#080808]">
       <div className="absolute inset-0 z-0">
         <motion.div
           initial={{ scale: 1.06, opacity: 0 }}
@@ -121,7 +116,7 @@ export default function Hero() {
         >
           <img
             src="/images/hero-samurai.jpeg"
-            className="h-full w-full object-cover object-[68%_center] brightness-[0.9] contrast-[1.08] saturate-[1.02]"
+            className="h-full w-full object-cover object-[68%_center] brightness-[0.82] contrast-[1.04] saturate-[0.94]"
             alt="Samurai hero background"
             loading="eager"
             fetchPriority="high"
@@ -129,12 +124,10 @@ export default function Hero() {
           />
         </motion.div>
 
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_58%_32%,rgba(255,0,0,0.24),transparent_18%),radial-gradient(circle_at_22%_72%,rgba(255,255,255,0.16),transparent_24%),linear-gradient(180deg,rgba(26,26,26,0.12)_0%,rgba(8,8,8,0.48)_100%)]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1A1A1A]/34 via-transparent to-[#080808]/16" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/48 via-black/8 to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_58%_32%,rgba(255,0,0,0.09),transparent_22%),radial-gradient(circle_at_22%_72%,rgba(255,255,255,0.05),transparent_26%),linear-gradient(180deg,rgba(26,26,26,0.01)_0%,rgba(8,8,8,0.04)_100%)]" />
 
         <motion.div
-          className="absolute left-[34%] top-[17%] h-[28vh] w-[26vw] rounded-full blur-3xl"
+          className="pointer-events-none absolute left-[34%] top-[17%] z-[10] h-[28vh] w-[26vw] rounded-full blur-3xl"
           animate={
             prefersReducedMotion
               ? { opacity: 0.14 }
@@ -145,19 +138,13 @@ export default function Hero() {
               ? { duration: 0.8 }
               : { duration: 8, repeat: Infinity, ease: 'easeInOut' }
           }
-          style={{ background: 'radial-gradient(circle, rgba(255,0,0,0.28) 0%, rgba(255,255,255,0.12) 45%, rgba(255,0,0,0) 72%)' }}
+          style={{ background: 'radial-gradient(circle, rgba(255,0,0,0.16) 0%, rgba(255,255,255,0.06) 45%, rgba(255,0,0,0) 72%)' }}
         />
 
-        <div className="absolute inset-x-0 bottom-0 z-[17] h-[30vh] bg-gradient-to-t from-[#080808] via-[#080808]/58 to-transparent" />
-        <div className="absolute bottom-[19%] left-[11%] z-[13] h-[17vh] w-[18vw] opacity-28 blur-[2px]">
-          <div className="h-full w-full bg-[#080808]" style={{ clipPath: 'polygon(0 100%, 14% 52%, 25% 56%, 31% 40%, 41% 44%, 44% 100%)' }} />
-        </div>
-        <div className="absolute bottom-[18%] right-[7%] z-[13] h-[33vh] w-[19vw] opacity-22 blur-[1px]">
-          <div className="h-full w-full bg-[#080808]" style={{ clipPath: 'polygon(8% 100%, 14% 54%, 35% 32%, 49% 12%, 64% 30%, 82% 42%, 92% 60%, 100% 100%)' }} />
-        </div>
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[17] h-[30vh] bg-gradient-to-t from-[#080808]/52 via-[#080808]/24 to-transparent" />
 
         <div
-          className="absolute inset-0 opacity-[0.06] mix-blend-screen"
+          className="pointer-events-none absolute inset-0 z-[18] opacity-[0.04] mix-blend-screen"
           style={{
             backgroundImage:
               'radial-gradient(circle at 20% 20%, rgba(255,255,255,0.18) 0 0.7px, transparent 0.8px), radial-gradient(circle at 80% 30%, rgba(255,0,0,0.14) 0 0.7px, transparent 0.8px)',
@@ -167,14 +154,14 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative z-30 flex h-full w-full flex-col justify-between px-6 pb-[60px] lg:px-[60px]">
+      <div className="pointer-events-none relative z-30 flex h-full w-full flex-col justify-between px-6 pb-[60px] lg:px-[60px]">
         <div className="relative flex h-full flex-grow items-center justify-center">
           <div className="relative mt-20 flex flex-col items-center justify-center space-y-0 text-center">
             <motion.h1
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="m-0 font-mono text-[4vw] font-medium uppercase leading-tight tracking-widest text-[#FF0000] drop-shadow-md md:text-[2vw]"
+              className="relative z-10 m-0 font-mono text-[4vw] font-medium uppercase leading-tight tracking-widest text-[#FF0000] drop-shadow-md md:text-[2vw]"
             >
               Creative Developer
             </motion.h1>
@@ -183,7 +170,7 @@ export default function Hero() {
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-[17vw] font-black uppercase leading-[0.9] tracking-tighter text-white drop-shadow-2xl md:text-[12vw]"
+              className="relative z-10 text-[17vw] font-black uppercase leading-[0.9] tracking-tighter text-white drop-shadow-2xl md:text-[12vw]"
             >
               Kent Levi
             </motion.h1>

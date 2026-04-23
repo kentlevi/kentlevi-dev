@@ -1,4 +1,5 @@
-import { motion } from 'motion/react';
+import { motion, useMotionValue, useReducedMotion, useSpring } from 'motion/react';
+import { useEffect, useRef, useState } from 'react';
 
 const capabilities = [
   {
@@ -83,6 +84,174 @@ const capabilities = [
   },
 ];
 
+type Capability = (typeof capabilities)[number];
+
+const SCRAMBLE_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+
+function useScrambleText(text: string, trigger: number, enabled: boolean) {
+  const [displayText, setDisplayText] = useState(text);
+
+  useEffect(() => {
+    if (!enabled) {
+      setDisplayText(text);
+      return;
+    }
+
+    let frame = 0;
+    const letters = text.split('');
+    const intervalId = window.setInterval(() => {
+      frame += 1;
+      const reveal = frame / 3;
+
+      const next = letters
+        .map((char, index) => {
+          if (char === ' ') {
+            return ' ';
+          }
+
+          if (index < reveal) {
+            return char;
+          }
+
+          return SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
+        })
+        .join('');
+
+      setDisplayText(next);
+
+      if (reveal >= letters.length) {
+        window.clearInterval(intervalId);
+        setDisplayText(text);
+      }
+    }, 40);
+
+    return () => {
+      window.clearInterval(intervalId);
+    };
+  }, [enabled, text, trigger]);
+
+  return displayText;
+}
+
+function CapabilityPanel({ cap }: { cap: Capability }) {
+  const prefersReducedMotion = useReducedMotion();
+  const panelRef = useRef<HTMLDivElement | null>(null);
+  const pointerX = useMotionValue(0);
+  const pointerY = useMotionValue(0);
+  const magneticX = useSpring(pointerX, { stiffness: 110, damping: 20, mass: 0.5 });
+  const magneticY = useSpring(pointerY, { stiffness: 110, damping: 20, mass: 0.5 });
+  const [scrambleTick, setScrambleTick] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const isScrambleTitle = !prefersReducedMotion;
+  const scrambledTitle = useScrambleText(cap.title, scrambleTick, isScrambleTitle && scrambleTick > 0);
+
+  useEffect(() => {
+    if (!isScrambleTitle || !panelRef.current) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry) {
+          return;
+        }
+
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+          setScrambleTick((value) => value + 1);
+        } else if (!entry.isIntersecting && isVisible) {
+          setIsVisible(false);
+        }
+      },
+      {
+        threshold: 0.55,
+      },
+    );
+
+    observer.observe(panelRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [isScrambleTitle, isVisible]);
+
+  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (prefersReducedMotion || !panelRef.current) {
+      return;
+    }
+
+    const bounds = panelRef.current.getBoundingClientRect();
+    const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+    const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+    pointerX.set(x * 64);
+    pointerY.set(y * 40);
+  };
+
+  const handlePointerLeave = () => {
+    pointerX.set(0);
+    pointerY.set(0);
+  };
+
+  return (
+    <div
+      ref={panelRef}
+      onPointerMove={handlePointerMove}
+      onPointerLeave={handlePointerLeave}
+      className="sticky top-0 z-0 flex h-[75vh] w-full flex-col justify-end overflow-hidden bg-[#FF0000]"
+    >
+      <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-end overflow-hidden">
+        <motion.span
+          style={prefersReducedMotion ? undefined : { x: magneticX, y: magneticY }}
+          className="select-none whitespace-nowrap text-[84vw] font-black uppercase leading-none tracking-tighter text-[#080808]/70 sm:text-[78vw] md:text-[72vw] lg:text-[66vw] xl:text-[58vw]"
+        >
+          {cap.mark}
+        </motion.span>
+      </div>
+
+      <img
+        src={cap.image}
+        alt=""
+        aria-hidden="true"
+        className={`pointer-events-none absolute z-[14] hidden object-contain object-bottom opacity-90 saturate-0 contrast-125 mix-blend-multiply md:block ${cap.imageClass}`}
+      />
+
+      <div className="pointer-events-none absolute inset-0 z-[15] bg-gradient-to-r from-[#FF0000]/0 via-[#FF0000]/10 to-[#FF0000]/70" />
+
+      <div
+        className="pointer-events-none absolute inset-0 z-[16] opacity-[0.03] mix-blend-overlay"
+        style={{
+          backgroundImage: "url('https://futurecraft.agency/wp-content/uploads/2024/08/noise.gif')",
+          backgroundSize: '200px',
+        }}
+      />
+
+      <div className="relative z-20 w-full px-6 pb-[10vh] lg:px-12">
+        <p className="mb-4 font-mono text-lg font-bold tracking-[0.14em] text-white drop-shadow-md md:text-2xl">
+          // {cap.id}
+        </p>
+        <motion.h1
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          onClick={isScrambleTitle ? () => setScrambleTick((value) => value + 1) : undefined}
+          className={`whitespace-nowrap text-[clamp(2.6rem,10vw,9rem)] font-bold uppercase leading-[0.9] tracking-tighter text-white drop-shadow-xl ${
+            isScrambleTitle ? 'cursor-pointer select-none' : ''
+          }`}
+        >
+          {isScrambleTitle ? scrambledTitle : cap.title}
+        </motion.h1>
+        <div className="mt-6 flex max-w-3xl flex-wrap gap-2">
+          {cap.tags.map((tag) => (
+            <span key={tag} className="border border-white/22 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-white/82">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Services() {
   return (
     <section className="relative mt-12 w-full border-t border-[#1A1A1A] bg-[#080808] text-[#FFFFFF]" id="expertise">
@@ -119,51 +288,7 @@ export default function Services() {
       <div className="w-full bg-transparent pb-0">
         {capabilities.map((cap, i) => (
           <div key={cap.id} className="relative w-full">
-            <div className="sticky top-0 z-0 flex h-[75vh] w-full flex-col justify-end overflow-hidden bg-[#FF0000]">
-              <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-end overflow-hidden">
-                <span className="select-none whitespace-nowrap text-[84vw] font-black uppercase leading-none tracking-tighter text-[#080808]/70 sm:text-[78vw] md:text-[72vw] lg:text-[66vw] xl:text-[58vw]">
-                  {cap.mark}
-                </span>
-              </div>
-
-              <img
-                src={cap.image}
-                alt=""
-                aria-hidden="true"
-                className={`pointer-events-none absolute z-[14] hidden object-contain object-bottom opacity-90 saturate-0 contrast-125 mix-blend-multiply md:block ${cap.imageClass}`}
-              />
-
-              <div className="pointer-events-none absolute inset-0 z-[15] bg-gradient-to-r from-[#FF0000]/0 via-[#FF0000]/10 to-[#FF0000]/70" />
-
-              <div
-                className="pointer-events-none absolute inset-0 z-[16] opacity-[0.03] mix-blend-overlay"
-                style={{
-                  backgroundImage: "url('https://futurecraft.agency/wp-content/uploads/2024/08/noise.gif')",
-                  backgroundSize: '200px',
-                }}
-              />
-
-              <div className="relative z-20 w-full px-6 pb-[10vh] lg:px-12">
-                <p className="mb-4 font-mono text-lg font-bold tracking-[0.14em] text-white drop-shadow-md md:text-2xl">
-                  // {cap.id}
-                </p>
-                <motion.h1
-                  initial={{ y: 50, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.8, ease: 'easeOut' }}
-                  className="whitespace-nowrap text-[clamp(2.6rem,10vw,9rem)] font-bold uppercase leading-[0.9] tracking-tighter text-white drop-shadow-xl"
-                >
-                  {cap.title}
-                </motion.h1>
-                <div className="mt-6 flex max-w-3xl flex-wrap gap-2">
-                  {cap.tags.map((tag) => (
-                    <span key={tag} className="border border-white/22 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-white/82">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <CapabilityPanel cap={cap} />
 
             <div className="relative z-10 -mt-[1px] w-full bg-[#080808] pb-12 pt-24 lg:pb-24">
               <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 lg:grid-cols-12 lg:px-12">
