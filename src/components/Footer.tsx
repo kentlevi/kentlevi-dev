@@ -25,7 +25,7 @@ export default function Footer() {
         </motion.p>
 
         <motion.a
-          href="mailto:hello@designbybrandin.com"
+          href="mailto:kentlevicadungog@gmail.com"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -43,7 +43,7 @@ export default function Footer() {
             <a href="#" className="transition-colors hover:text-white">
               LinkedIn
             </a>
-            <a href="mailto:hello@designbybrandin.com" className="transition-colors hover:text-white">
+            <a href="mailto:kentlevicadungog@gmail.com" className="transition-colors hover:text-white">
               Email
             </a>
             <a href="#work" className="transition-colors hover:text-white">
