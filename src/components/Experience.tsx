@@ -1,111 +1,122 @@
 import { motion } from 'motion/react';
 
-const experiences = [
+type ExperienceItem = {
+  period: string;
+  role: string;
+  company: string;
+  location: string;
+  description: string;
+  tags: string[];
+};
+
+const experiences: ExperienceItem[] = [
   {
+    period: '2025 - Present',
     role: 'Frontend & Integration Developer',
     company: 'Glophics Web Design & Advertising Inc.',
     location: 'Cebu City, Philippines',
-    date: 'April 2025 - Present',
     description:
-      'Architecting high-traffic, SEO-optimized Vue.js/Nuxt.js applications. Building custom UI component libraries and optimizing Core Web Vitals to improve rendering metrics across major client portfolios.',
-    outcomes: ['Core Web Vitals', 'Component Systems', 'SEO Architecture'],
+      'Architecting high-traffic, SEO-optimized Vue.js and Nuxt.js applications while building reusable UI systems and improving rendering performance across major client work.',
+    tags: ['Vue.js', 'Nuxt.js', 'AI Integration'],
   },
   {
+    period: '2023 - 2025',
     role: 'Software Developer',
     company: 'Dinnox IT Solutions',
     location: 'Cebu City, Philippines',
-    date: 'January 2023 - April 2025',
     description:
-      'Engineered high-performance interfaces and facilitated smooth data flow by integrating RESTful APIs with Django/Python backend systems. Improved maintainability by migrating legacy code to modern component architectures.',
-    outcomes: ['REST API Integration', 'Django Workflows', 'Legacy Modernization'],
+      'Engineered high-performance interfaces and integrated RESTful APIs with Django and Python backend systems, while modernizing legacy code into cleaner component-driven architecture.',
+    tags: ['React', 'Django', 'REST APIs'],
   },
   {
+    period: '2021 - 2023',
     role: 'Software Developer',
     company: 'The Little Ripple Company Pty Ltd',
     location: 'Australia (Remote)',
-    date: 'November 2021 - January 2023',
     description:
-      'Developed automated e-commerce and scheduling systems. Debugged legacy Python/Django architectures to increase application reliability and reduce server response times for critical business operations.',
-    outcomes: ['Automation', 'E-commerce Systems', 'Backend Reliability'],
+      'Built automated e-commerce and scheduling systems, improved backend reliability, and worked through legacy Python and Django applications to support critical business operations.',
+    tags: ['Automation', 'E-commerce', 'Python'],
   },
 ];
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative flex w-full flex-col overflow-hidden bg-[#1A1A1A] py-24 text-[#FFFFFF]">
-      <div className="relative mb-20 flex w-full overflow-hidden whitespace-nowrap">
-        <motion.div
-          className="flex whitespace-nowrap text-[22vw] font-bold uppercase leading-none tracking-tighter text-white/5 md:text-[20vw]"
-          animate={{ x: ['0%', '-50%'] }}
-          transition={{
-            repeat: Infinity,
-            ease: 'linear',
-            duration: 15,
-          }}
-        >
-          <span className="px-[4vw]">Professional Experience</span>
-          <span className="px-[4vw]">Professional Experience</span>
-        </motion.div>
-      </div>
+    <section id="experience" className="relative overflow-hidden bg-[#0a0a0a] px-5 py-24 text-white lg:px-12">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.03),transparent_34%)]" />
 
-      <div className="mx-auto w-full max-w-7xl px-6 lg:px-12">
-        <div className="mb-14 grid grid-cols-1 gap-8 md:grid-cols-[0.8fr_1.2fr] md:items-end">
-          <div>
-            <p className="mb-3 w-max border-b border-[#FF0000] pb-3 text-xs font-bold uppercase tracking-[0.24em] text-white/58">
-              Career Track
-            </p>
-            <h2 className="text-5xl font-bold uppercase leading-[0.95] tracking-tight md:text-7xl">
-              Experience
-            </h2>
+      <div className="relative mx-auto grid max-w-7xl">
+        <div>
+          <div className="mb-14 grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-start lg:gap-16 lg:mb-16">
+            <div className="min-w-0">
+              <p className="mb-3 text-lg font-bold uppercase tracking-tight text-white sm:text-[1.7rem]">
+                Experience
+              </p>
+            </div>
+
+            <div className="min-w-0">
+              <motion.h2
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-8%' }}
+                transition={{ duration: 0.7, ease: 'easeOut' }}
+                className="max-w-[12ch] text-[clamp(2.2rem,4.2vw,4.4rem)] font-black uppercase leading-[0.94] tracking-[-0.04em] text-white"
+              >
+                Built Across Product and Frontend
+              </motion.h2>
+              <p className="mt-5 max-w-xl text-sm font-medium leading-relaxed text-white/56 md:text-base">
+                Experience in frontend systems, backend integration, and delivery-focused product work.
+              </p>
+            </div>
           </div>
-          <p className="max-w-2xl text-base font-medium leading-relaxed text-white/58 md:text-lg">
-            Product-minded engineering across frontend systems, backend integrations, SEO performance, and automation-heavy workflows.
-          </p>
-        </div>
 
-        <div className="grid grid-cols-1 border-t border-[#080808]">
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={exp.company}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-10%' }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="group grid grid-cols-1 gap-8 border-b border-[#080808] py-10 transition-colors duration-500 hover:border-[#FF0000] md:grid-cols-12 md:gap-12 md:py-12"
-            >
-              <div className="md:col-span-3">
-                <div className="font-mono text-sm font-bold uppercase tracking-[0.18em] text-[#FF0000]">
-                  0{index + 1}
-                </div>
-                <div className="mt-4 text-sm font-bold uppercase tracking-[0.14em] text-white/46">
-                  {exp.date}
-                </div>
-              </div>
+          <div className="space-y-6">
+            {experiences.map((item, index) => (
+              <motion.article
+                key={`${item.company}-${item.period}`}
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-8%' }}
+                transition={{ duration: 0.7, delay: index * 0.08 }}
+                className="group relative overflow-hidden border border-white/10 bg-white/[0.02] p-6 transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.035] md:p-8"
+              >
+                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,0,0,0.10),transparent_30%,transparent_70%,rgba(255,255,255,0.03))] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-              <div className="md:col-span-4">
-                <h3 className="mb-3 text-2xl font-bold uppercase leading-tight tracking-tight md:text-3xl">
-                  {exp.company}
-                </h3>
-                <div className="text-sm font-bold uppercase tracking-[0.14em] text-gray-500">
-                  {exp.location}
-                </div>
-              </div>
+                <div className="relative z-10 grid gap-6 md:grid-cols-[150px_minmax(0,1fr)] md:gap-8">
+                  <div className="border-b border-white/8 pb-4 md:border-b-0 md:border-r md:pb-0 md:pr-6">
+                    <p className="font-mono text-[11px] font-bold uppercase tracking-[0.24em] text-[#ff5a5a]">
+                      {item.period}
+                    </p>
+                    <p className="mt-4 text-sm font-medium uppercase tracking-[0.16em] text-white/42">
+                      {item.location}
+                    </p>
+                  </div>
 
-              <div className="md:col-span-5">
-                <h4 className="mb-4 text-xl font-bold md:text-2xl">{exp.role}</h4>
-                <p className="max-w-3xl text-base leading-relaxed text-gray-400 md:text-lg">
-                  {exp.description}
-                </p>
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {exp.outcomes.map((outcome) => (
-                    <span key={outcome} className="border border-white/12 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.13em] text-white/58 group-hover:border-[#FF0000]/60 group-hover:text-white">
-                      {outcome}
-                    </span>
-                  ))}
+                  <div>
+                    <p className="mb-2 text-sm font-bold uppercase tracking-[0.16em] text-white/48">
+                      {item.company}
+                    </p>
+                    <h3 className="max-w-full whitespace-nowrap text-[clamp(1.55rem,2.35vw,2.8rem)] font-black uppercase leading-[0.96] tracking-[-0.04em] text-white">
+                      {item.role}
+                    </h3>
+                    <p className="mt-5 max-w-3xl text-base leading-relaxed text-white/64 md:text-lg">
+                      {item.description}
+                    </p>
+
+                    <div className="mt-6 flex flex-wrap gap-2">
+                      {item.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="border border-white/12 px-3 py-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-white/62 transition-colors duration-300 group-hover:border-white/22 group-hover:text-white/80"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -255,30 +255,19 @@ function CapabilityPanel({ cap }: { cap: Capability }) {
 export default function Services() {
   return (
     <section className="relative mt-12 w-full border-t border-[#1A1A1A] bg-[#080808] text-[#FFFFFF]" id="expertise">
-      <div className="relative z-20 mx-auto max-w-7xl bg-[#080808] px-6 py-24 lg:px-12 lg:py-32">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.15fr)] lg:items-end lg:gap-16">
-          <div className="relative flex min-w-0 flex-col justify-end gap-6 lg:min-h-[360px] lg:border-r lg:border-[#1A1A1A] lg:pr-14">
-            <div>
-              <p className="mb-3 w-max border-b border-[#FF0000] pb-3 text-xs font-bold uppercase tracking-[0.28em] text-white/62">
-                Core Capabilities
-              </p>
-              <h2 className="max-w-full text-6xl font-bold uppercase leading-[0.86] tracking-tight text-white sm:text-7xl md:text-8xl lg:text-[4.7rem] xl:text-[5.5rem]">
-                Expertise
-              </h2>
-            </div>
-
-            <p className="max-w-md text-sm font-medium leading-relaxed text-white/50 md:text-base">
-              Focused engineering across the layers that shape fast, reliable, and scalable digital products.
+      <div className="relative z-20 mx-auto max-w-[1920px] bg-[#080808] px-6 py-24 lg:px-12 lg:py-28">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-start lg:gap-16">
+          <div className="min-w-0">
+            <p className="mb-3 text-lg font-bold uppercase tracking-tight text-white sm:text-[1.7rem]">
+              My Expertise
             </p>
           </div>
 
-          <div className="flex min-w-0 flex-col justify-center gap-7 lg:min-h-[360px] lg:pl-2">
-            <h2 className="max-w-4xl text-4xl font-bold uppercase leading-[0.96] tracking-tight text-white sm:text-5xl lg:text-[3.15rem] xl:text-[3.75rem]">
-              Fast interfaces.<br />
-              Resilient systems.<br />
-              Practical AI workflows.
+          <div className="min-w-0">
+            <h2 className="max-w-[12ch] text-[clamp(2.8rem,5.8vw,6.2rem)] font-black uppercase leading-[0.92] tracking-[-0.05em] text-white">
+              Digital Experiences, Design, and AI
             </h2>
-            <p className="max-w-3xl text-base font-medium leading-relaxed text-white/60 md:text-lg">
+            <p className="mt-8 max-w-3xl text-base font-medium leading-relaxed text-white/60 md:text-lg">
               I connect polished frontend execution with backend clarity and automation strategy, turning product ideas into experiences that are easy to use, maintain, and scale.
             </p>
           </div>

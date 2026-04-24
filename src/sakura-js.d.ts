@@ -20,3 +20,5 @@ declare module 'sakura-js/dist/sakura.js' {
     stop(graceful?: boolean): void;
   }
 }
+
+declare module 'sakura-js/dist/sakura.css';
