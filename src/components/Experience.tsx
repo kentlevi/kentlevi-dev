@@ -11,37 +11,37 @@ type ExperienceItem = {
 
 const experiences: ExperienceItem[] = [
   {
-    period: '2025 - Present',
-    role: 'Frontend & Integration Developer',
+    period: 'Apr 2025 - Present',
+    role: 'Frontend Website Developer',
     company: 'Glophics Web Design & Advertising Inc.',
     location: 'Cebu City, Philippines',
     description:
-      'Architecting high-traffic, SEO-optimized Vue.js and Nuxt.js applications while building reusable UI systems and improving rendering performance across major client work.',
-    tags: ['Vue.js', 'Nuxt.js', 'AI Integration'],
+      'Using Anthropic Claude API, Claude Code, and Google Antigravity in production delivery while architecting high-traffic React, Vue, and Nuxt applications with SSR, reusable UI systems, dynamic SEO metadata, and Core Web Vitals improvements.',
+    tags: ['Claude API', 'React', 'Vue.js', 'Nuxt.js', 'Core Web Vitals'],
   },
   {
-    period: '2023 - 2025',
-    role: 'Software Developer',
+    period: 'Jan 2023 - Mar 2025',
+    role: 'Senior Frontend Developer',
     company: 'Dinnox IT Solutions',
     location: 'Cebu City, Philippines',
     description:
-      'Engineered high-performance interfaces and integrated RESTful APIs with Django and Python backend systems, while modernizing legacy code into cleaner component-driven architecture.',
-    tags: ['React', 'Django', 'REST APIs'],
+      'Built high-performance JavaScript interfaces, integrated complex REST APIs with Python/Django backends, modernized legacy code into component-based architecture, and used LLM-assisted engineering to prototype schemas and optimize query generation.',
+    tags: ['JavaScript', 'Python', 'Django', 'REST APIs', 'LLM Tools'],
   },
   {
-    period: '2021 - 2023',
+    period: 'Nov 2021 - Jan 2023',
     role: 'Software Developer',
     company: 'The Little Ripple Company Pty Ltd',
     location: 'Australia (Remote)',
     description:
-      'Built automated e-commerce and scheduling systems, improved backend reliability, and worked through legacy Python and Django applications to support critical business operations.',
-    tags: ['Automation', 'E-commerce', 'Python'],
+      'Developed e-commerce and dynamic scheduling systems in Python/Django, audited legacy systems with early LLM-assisted scripting, and improved performance, reliability, testing, debugging, and data handling for international business operations.',
+    tags: ['Python', 'Django', 'E-commerce', 'Scheduling', 'Debugging'],
   },
 ];
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative overflow-hidden bg-[#0a0a0a] px-5 py-24 text-white lg:px-12">
+    <section id="experience" className="relative overflow-hidden bg-[#0a0a0a] px-5 py-20 text-white sm:py-24 lg:px-12">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.03),transparent_34%)]" />
 
       <div className="relative mx-auto grid max-w-7xl">
@@ -59,12 +59,12 @@ export default function Experience() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-8%' }}
                 transition={{ duration: 0.7, ease: 'easeOut' }}
-                className="max-w-[12ch] text-[clamp(2.2rem,4.2vw,4.4rem)] font-black uppercase leading-[0.94] tracking-[-0.04em] text-white"
+                className="max-w-[12ch] text-[clamp(2.05rem,4.2vw,4.4rem)] font-black uppercase leading-[0.94] tracking-[-0.035em] text-white sm:tracking-[-0.04em]"
               >
-                Built Across Product and Frontend
+                Built Across AI, Product, and Frontend
               </motion.h2>
               <p className="mt-5 max-w-xl text-sm font-medium leading-relaxed text-white/56 md:text-base">
-                Experience in frontend systems, backend integration, and delivery-focused product work.
+                Experience in AI-assisted engineering, frontend systems, backend integration, and delivery-focused product work.
               </p>
             </div>
           </div>
@@ -77,7 +77,7 @@ export default function Experience() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-8%' }}
                 transition={{ duration: 0.7, delay: index * 0.08 }}
-                className="group relative overflow-hidden border border-white/10 bg-white/[0.02] p-6 transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.035] md:p-8"
+                className="group relative overflow-hidden border border-white/10 bg-white/[0.02] p-5 transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.035] sm:p-6 md:p-8"
               >
                 <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,0,0,0.10),transparent_30%,transparent_70%,rgba(255,255,255,0.03))] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
@@ -95,7 +95,7 @@ export default function Experience() {
                     <p className="mb-2 text-sm font-bold uppercase tracking-[0.16em] text-white/48">
                       {item.company}
                     </p>
-                    <h3 className="max-w-full whitespace-nowrap text-[clamp(1.55rem,2.35vw,2.8rem)] font-black uppercase leading-[0.96] tracking-[-0.04em] text-white">
+                    <h3 className="max-w-full text-[clamp(1.55rem,8vw,2.8rem)] font-black uppercase leading-[0.96] tracking-[-0.035em] text-white md:whitespace-nowrap md:text-[clamp(1.55rem,2.35vw,2.8rem)] md:tracking-[-0.04em]">
                       {item.role}
                     </h3>
                     <p className="mt-5 max-w-3xl text-base leading-relaxed text-white/64 md:text-lg">

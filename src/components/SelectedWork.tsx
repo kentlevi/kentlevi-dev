@@ -34,7 +34,7 @@ const workItems: WorkItem[] = [
 
 export default function SelectedWork() {
   return (
-    <section id="work" className="relative overflow-hidden bg-[#0a0a0a] px-5 py-24 text-white lg:px-12">
+    <section id="work" className="relative overflow-hidden bg-[#0a0a0a] px-5 py-20 text-white sm:py-24 lg:px-12">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.035),transparent_30%)]" />
 
       <div className="relative mx-auto max-w-[1920px]">
@@ -50,7 +50,7 @@ export default function SelectedWork() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-8%' }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="max-w-[12ch] text-[clamp(2.6rem,5.6vw,5.9rem)] font-black uppercase leading-[0.92] tracking-[-0.05em] text-white"
+            className="max-w-[12ch] text-[clamp(2.35rem,5.6vw,5.9rem)] font-black uppercase leading-[0.92] tracking-[-0.04em] text-white sm:tracking-[-0.05em]"
           >
             Selected Work
           </motion.h2>
@@ -85,7 +85,7 @@ export default function SelectedWork() {
                   whileInView={{ opacity: 1, y: 0, color: 'rgba(255,255,255,1)' }}
                   viewport={{ once: true, margin: '-8%' }}
                   transition={{ duration: 0.75, delay: 0.08 + index * 0.08, ease: 'easeOut' }}
-                  className="min-w-0 whitespace-nowrap text-[clamp(2rem,4.1vw,3.9rem)] font-medium uppercase leading-[0.95] tracking-[-0.04em] transition-[color,text-shadow,transform] duration-300 group-hover:text-white group-focus-visible:text-white group-hover:[text-shadow:0_0_24px_rgba(255,255,255,0.16)] group-focus-visible:[text-shadow:0_0_24px_rgba(255,255,255,0.16)]"
+                  className="min-w-0 max-w-full text-[clamp(2rem,11vw,3.9rem)] font-medium uppercase leading-[0.95] tracking-[-0.035em] transition-[color,text-shadow,transform] duration-300 group-hover:text-white group-focus-visible:text-white group-hover:[text-shadow:0_0_24px_rgba(255,255,255,0.16)] group-focus-visible:[text-shadow:0_0_24px_rgba(255,255,255,0.16)] sm:text-[clamp(2.35rem,8vw,3.9rem)] md:whitespace-nowrap md:text-[clamp(2rem,4.1vw,3.9rem)] md:tracking-[-0.04em]"
                 >
                   {item.title}
                 </motion.h2>
@@ -107,7 +107,6 @@ export default function SelectedWork() {
                   </span>
                 ))}
               </div>
-
             </motion.a>
           ))}
         </div>

@@ -106,7 +106,7 @@ export default function Hero() {
   }, [prefersReducedMotion]);
 
   return (
-    <section ref={heroRef} className="relative flex h-[100svh] w-full items-center justify-between overflow-hidden bg-[#080808]">
+    <section ref={heroRef} className="relative flex min-h-[100svh] w-full items-center justify-between overflow-hidden bg-[#080808]">
       <div className="absolute inset-0 z-0">
         <motion.div
           initial={{ scale: 1.06, opacity: 0 }}
@@ -127,7 +127,7 @@ export default function Hero() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_58%_32%,rgba(255,0,0,0.09),transparent_22%),radial-gradient(circle_at_22%_72%,rgba(255,255,255,0.05),transparent_26%),linear-gradient(180deg,rgba(26,26,26,0.01)_0%,rgba(8,8,8,0.04)_100%)]" />
 
         <motion.div
-          className="pointer-events-none absolute left-[34%] top-[17%] z-[10] h-[28vh] w-[26vw] rounded-full blur-3xl"
+          className="pointer-events-none absolute left-[18%] top-[16%] z-[10] h-[22vh] w-[48vw] rounded-full blur-3xl md:left-[34%] md:h-[28vh] md:w-[26vw]"
           animate={
             prefersReducedMotion
               ? { opacity: 0.14 }
@@ -154,35 +154,35 @@ export default function Hero() {
         />
       </div>
 
-      <div className="pointer-events-none relative z-30 flex h-full w-full flex-col justify-between px-6 pb-[60px] lg:px-[60px]">
-        <div className="relative flex h-full flex-grow items-center justify-center">
-          <div className="relative mt-20 flex flex-col items-center justify-center space-y-0 text-center">
+      <div className="pointer-events-none relative z-30 flex min-h-[100svh] w-full flex-col justify-between px-5 pb-8 pt-24 sm:px-6 sm:pb-10 lg:px-[60px]">
+        <div className="relative flex flex-grow items-center justify-center py-12 sm:py-16">
+          <div className="relative flex flex-col items-center justify-center space-y-0 text-center">
             <motion.h1
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="relative z-10 m-0 font-mono text-[4vw] font-medium uppercase leading-tight tracking-widest text-[#FF0000] drop-shadow-md md:text-[2vw]"
+              className="relative z-10 m-0 font-mono text-[clamp(0.78rem,3.6vw,1.25rem)] font-medium uppercase leading-tight tracking-widest text-[#FF0000] drop-shadow-md md:text-[2vw]"
             >
-              Creative Developer
+              Full-Stack Developer
             </motion.h1>
 
             <motion.h1
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative z-10 text-[17vw] font-black uppercase leading-[0.9] tracking-tighter text-white drop-shadow-2xl md:text-[12vw]"
+              className="relative z-10 text-[clamp(2.8rem,11.5vw,8rem)] font-black uppercase leading-[0.88] tracking-tighter text-white drop-shadow-2xl md:text-[12vw]"
             >
               Kent Levi
             </motion.h1>
           </div>
         </div>
 
-        <div className="relative mt-8 flex w-full flex-col items-center gap-6 border-t border-white/20 pt-8 md:flex-row md:items-end md:gap-0 md:border-none md:pt-0">
+        <div className="relative mt-4 flex w-full flex-col items-center gap-3 border-t border-white/20 pt-5 sm:gap-4 md:flex-row md:items-end md:gap-0 md:border-none md:pt-0">
           <motion.p
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex-1 text-center text-sm font-medium tracking-wide md:text-left md:text-[12px]"
+            className="flex-1 text-center text-xs font-medium tracking-wide sm:text-sm md:text-left md:text-[12px]"
           >
             Based in Cebu City, Philippines
           </motion.p>
@@ -190,15 +190,15 @@ export default function Hero() {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex-1 text-center text-sm font-medium tracking-wide text-white/70 md:text-[12px]"
+            className="flex-1 text-center text-xs font-medium tracking-wide text-white/70 sm:text-sm md:text-[12px]"
           >
-            Specializing in Frontend, Vue.js, &amp; AI Integration
+            Multi-model AI, React, Vue, Django, &amp; performance systems
           </motion.p>
           <motion.p
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className="flex-1 text-center text-sm font-medium tracking-wide md:text-right md:text-[12px]"
+            className="flex-1 text-center text-xs font-medium tracking-wide sm:text-sm md:text-right md:text-[12px]"
           >
             4+ Years Experience
           </motion.p>

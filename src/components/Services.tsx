@@ -8,38 +8,36 @@ const capabilities = [
     title: 'Frontend Engineering',
     image: '/images/cutouts/robot-torso.png',
     imageClass: 'right-[-7vw] top-[-8vh] h-[72vh] max-h-none md:h-[88vh]',
-    tags: ['Vue', 'Nuxt', 'React', 'Core Web Vitals'],
-    headline: 'Performance-driven interfaces built for scale',
+    tags: ['React', 'Vue', 'Nuxt', 'TypeScript'],
+    headline: 'Frontend systems that stay fast as products grow',
     description:
-      'I architect responsive, SEO-optimized web applications in Vue, Nuxt, React, and TypeScript. The work focuses on fast rendering, clean component boundaries, and interfaces that stay maintainable as products grow.',
+      'I build responsive, SEO-ready applications in React, Vue, Nuxt, JavaScript, and TypeScript, with emphasis on reusable component systems, clean data flow, accessibility, and production maintainability.',
     items: [
-      'Vue.js (2/3) & Nuxt.js',
-      'React & TypeScript',
-      'Tailwind CSS & SCSS',
-      'State Management (Pinia/Vuex)',
-      'TanStack Query',
-      'Component-Based Architecture',
-      'SSR & SSG Implementation',
+      'React.js, JavaScript ES6+, and TypeScript',
+      'Vue.js 2/3 and Nuxt SSR implementation',
+      'Reusable UI libraries and component contracts',
+      'Tailwind CSS, SCSS, and responsive design systems',
+      'Pinia, Vuex, React Context, and TanStack Query',
+      'Accessible interfaces with stable mobile behavior',
     ],
   },
   {
     id: '02',
     mark: 'AI',
-    title: 'AI / ML Integration',
+    title: 'AI / LLM Engineering',
     image: '/images/cutouts/robot-profile.png',
     imageClass: 'right-[4vw] top-[-2vh] h-[64vh] max-h-none md:h-[78vh]',
-    tags: ['OpenAI', 'Gemini', 'Claude', 'Automation'],
-    headline: 'Workflow automation powered by practical AI systems',
+    tags: ['Claude', 'OpenAI', 'Gemini', 'Guardrails'],
+    headline: 'Multi-model AI workflows with practical guardrails',
     description:
-      'I design multi-model AI features with OpenAI, Gemini, and Claude, then connect them to real product workflows. That includes prompt systems, content automation, event-driven publishing, and internal tools that reduce repetitive work.',
+      'I design Claude, OpenAI, and Gemini workflows that connect directly to product and content operations. The focus is prompt iteration, output quality, fallback behavior, and systems that can be maintained after launch.',
     items: [
-      'Multi-Model AI Integration',
-      'LLM Workflow Automation',
-      'Prompt Engineering',
-      'Agentic Platforms',
-      'AI Tools',
-      'Automated SEO & Content Generation',
-      'Event-Driven AI Publishing',
+      'Claude Code and Anthropic API workflows',
+      'Multi-model orchestration across Claude, OpenAI, and Gemini',
+      'Prompt versioning, few-shot design, and output schemas',
+      'Validation, fallback chains, retry policies, and guardrails',
+      'Context-window management for long-running workflows',
+      'Agentic coding and tool-augmented engineering',
     ],
   },
   {
@@ -48,18 +46,17 @@ const capabilities = [
     title: 'Backend Architecture',
     image: '/images/cutouts/operator-laptop.png',
     imageClass: 'left-[-10vw] top-[1vh] h-[62vh] max-h-none md:h-[78vh]',
-    tags: ['Django', 'PostgreSQL', 'Redis', 'APIs'],
-    headline: 'Reliable data systems and APIs that support growth',
+    tags: ['Django', 'PostgreSQL', 'Redis', 'BullMQ'],
+    headline: 'Backend and data flows that keep products moving',
     description:
-      'Beyond the interface, I build the backend foundations that keep products stable. My work covers Django and Python APIs, PostgreSQL schema design, queue-driven processing, and integrations that keep data moving cleanly.',
+      'Beyond the interface, I work through the backend foundations that keep products stable: Python/Django APIs, PostgreSQL data models, queue-driven processing, and third-party integrations.',
     items: [
-      'Python & Django',
-      'RESTful API Integration',
-      'PostgreSQL Schema Design',
-      'Redis & BullMQ',
-      'Data Flow Optimization',
-      'PHP & Java Awareness',
-      'Agile/Scrum CI/CD Workflows',
+      'Python and Django backend development',
+      'RESTful API design and integration',
+      'PostgreSQL schema design and SQL workflows',
+      'Redis and BullMQ event pipelines',
+      'Google Search Console and SerpAPI data loops',
+      'Git, Vercel, Netlify, and CI/CD delivery',
     ],
   },
   {
@@ -68,23 +65,28 @@ const capabilities = [
     title: 'Performance & SEO',
     image: '/images/cutouts/samurai-swords.png',
     imageClass: 'left-[-8vw] top-[-3vh] h-[68vh] max-h-none md:h-[82vh]',
-    tags: ['LCP', 'CLS', 'Metadata', 'Accessibility'],
-    headline: 'Optimized for Core Web Vitals and organic reach',
+    tags: ['LCP', 'CLS', 'INP', 'SSR'],
+    headline: 'Performance and SEO treated as product quality',
     description:
-      'I treat performance as product quality. From LCP and CLS improvements to metadata systems, code-splitting, lazy loading, and asset strategy, I make pages faster, clearer, and easier to rank.',
+      'I improve Core Web Vitals, indexing, and organic visibility through SSR/SSG, dynamic metadata, code-splitting, lazy loading, asset strategy, and focused production debugging.',
     items: [
-      'Core Web Vitals Optimization',
-      'LCP, CLS, INP Improvement',
-      'Asset Optimization',
-      'Dynamic SEO Metadata',
-      'Code-Splitting',
-      'Lazy Loading',
-      'Responsive Web Accessibility',
+      'LCP, CLS, and INP optimization',
+      'SSR, SSG, and indexing strategy',
+      'Dynamic SEO metadata systems',
+      'Code-splitting and lazy loading',
+      'Asset optimization for production traffic',
+      'Production debugging and regression control',
     ],
   },
 ];
 
 type Capability = (typeof capabilities)[number];
+
+const expertiseStats = [
+  { value: '4+', label: 'Years shipping production systems' },
+  { value: '30%', label: 'Faster feature delivery through reusable UI' },
+  { value: '3', label: 'AI model families in active workflows' },
+];
 
 const SCRAMBLE_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
@@ -197,12 +199,12 @@ function CapabilityPanel({ cap }: { cap: Capability }) {
       ref={panelRef}
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
-      className="sticky top-0 z-0 flex h-[75vh] w-full flex-col justify-end overflow-hidden bg-[#FF0000]"
+      className="sticky top-0 z-0 flex h-[72svh] min-h-[500px] w-full flex-col justify-end overflow-hidden bg-[#FF0000] md:h-[75vh]"
     >
       <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-end overflow-hidden">
         <motion.span
           style={prefersReducedMotion ? undefined : { x: magneticX, y: magneticY }}
-          className="select-none whitespace-nowrap text-[84vw] font-black uppercase leading-none tracking-tighter text-[#080808]/70 sm:text-[78vw] md:text-[72vw] lg:text-[66vw] xl:text-[58vw]"
+          className="select-none whitespace-nowrap text-[78vw] font-black uppercase leading-none tracking-tighter text-[#080808]/70 sm:text-[72vw] md:text-[72vw] lg:text-[66vw] xl:text-[58vw]"
         >
           {cap.mark}
         </motion.span>
@@ -225,8 +227,8 @@ function CapabilityPanel({ cap }: { cap: Capability }) {
         }}
       />
 
-      <div className="relative z-20 w-full px-6 pb-[10vh] lg:px-12">
-        <p className="mb-4 font-mono text-lg font-bold tracking-[0.14em] text-white drop-shadow-md md:text-2xl">
+      <div className="relative z-20 w-full px-5 pb-14 sm:px-6 md:pb-[10vh] lg:px-12">
+        <p className="mb-4 font-mono text-base font-bold tracking-[0.14em] text-white drop-shadow-md md:text-2xl">
           // {cap.id}
         </p>
         <motion.h1
@@ -234,7 +236,7 @@ function CapabilityPanel({ cap }: { cap: Capability }) {
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
           onClick={isScrambleTitle ? () => setScrambleTick((value) => value + 1) : undefined}
-          className={`whitespace-nowrap text-[clamp(2.6rem,10vw,9rem)] font-bold uppercase leading-[0.9] tracking-tighter text-white drop-shadow-xl ${
+          className={`max-w-[11ch] text-[clamp(2.55rem,14vw,9rem)] font-bold uppercase leading-[0.9] tracking-tighter text-white drop-shadow-xl md:max-w-none md:whitespace-nowrap md:text-[clamp(2.6rem,10vw,9rem)] ${
             isScrambleTitle ? 'cursor-pointer select-none' : ''
           }`}
         >
@@ -254,8 +256,8 @@ function CapabilityPanel({ cap }: { cap: Capability }) {
 
 export default function Services() {
   return (
-    <section className="relative mt-12 w-full border-t border-[#1A1A1A] bg-[#080808] text-[#FFFFFF]" id="expertise">
-      <div className="relative z-20 mx-auto max-w-[1920px] bg-[#080808] px-6 py-24 lg:px-12 lg:py-28">
+    <section className="relative mt-8 w-full border-t border-[#1A1A1A] bg-[#080808] text-[#FFFFFF] sm:mt-12" id="expertise">
+      <div className="relative z-20 mx-auto max-w-[1920px] bg-[#080808] px-5 py-20 sm:px-6 sm:py-24 lg:px-12 lg:py-28">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-start lg:gap-16">
           <div className="min-w-0">
             <p className="mb-3 text-lg font-bold uppercase tracking-tight text-white sm:text-[1.7rem]">
@@ -264,12 +266,25 @@ export default function Services() {
           </div>
 
           <div className="min-w-0">
-            <h2 className="max-w-[12ch] text-[clamp(2.8rem,5.8vw,6.2rem)] font-black uppercase leading-[0.92] tracking-[-0.05em] text-white">
-              Digital Experiences, Design, and AI
+            <h2 className="max-w-[12ch] text-[clamp(2.35rem,5.8vw,6.2rem)] font-black uppercase leading-[0.92] tracking-[-0.04em] text-white sm:text-[clamp(2.8rem,5.8vw,6.2rem)] sm:tracking-[-0.05em]">
+              AI Workflows, Frontend Systems, and Data Pipelines
             </h2>
             <p className="mt-8 max-w-3xl text-base font-medium leading-relaxed text-white/60 md:text-lg">
-              I connect polished frontend execution with backend clarity and automation strategy, turning product ideas into experiences that are easy to use, maintain, and scale.
+              I connect polished frontend execution with backend clarity and practical AI engineering, turning product ideas into fast, maintainable systems with measurable workflow and search impact.
             </p>
+
+            <div className="mt-10 grid gap-3 sm:grid-cols-3">
+              {expertiseStats.map((stat) => (
+                <div key={stat.label} className="border border-white/10 bg-white/[0.025] p-4">
+                  <p className="font-mono text-2xl font-bold leading-none text-[#FF0000] md:text-3xl">
+                    {stat.value}
+                  </p>
+                  <p className="mt-3 text-[10px] font-bold uppercase leading-relaxed tracking-[0.16em] text-white/50">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -279,8 +294,8 @@ export default function Services() {
           <div key={cap.id} className="relative w-full">
             <CapabilityPanel cap={cap} />
 
-            <div className="relative z-10 -mt-[1px] w-full bg-[#080808] pb-12 pt-24 lg:pb-24">
-              <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 lg:grid-cols-12 lg:px-12">
+            <div className="relative z-10 -mt-[1px] w-full bg-[#080808] pb-12 pt-16 sm:pt-20 lg:pb-24 lg:pt-24">
+              <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-5 sm:px-6 lg:grid-cols-12 lg:gap-12 lg:px-12">
                 <div className="hidden lg:col-span-4 lg:block">
                   <div className="sticky top-32 h-max">
                     <span
@@ -296,10 +311,10 @@ export default function Services() {
                 </div>
 
                 <div className="col-span-1 lg:col-span-8">
-                  <h2 className="mb-8 max-w-4xl pr-0 text-3xl font-bold uppercase leading-[1.08] tracking-tight sm:text-4xl md:text-5xl">
+                  <h2 className="mb-6 max-w-4xl pr-0 text-[clamp(1.9rem,8vw,3rem)] font-bold uppercase leading-[1.08] tracking-tight sm:mb-8 sm:text-4xl md:text-5xl">
                     {cap.headline}
                   </h2>
-                  <p className="mb-12 max-w-3xl text-base leading-relaxed text-gray-400 md:text-lg">
+                  <p className="mb-10 max-w-3xl text-base leading-relaxed text-gray-400 sm:mb-12 md:text-lg">
                     {cap.description}
                   </p>
 
@@ -311,7 +326,7 @@ export default function Services() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: index * 0.05 }}
                         key={item}
-                        className="group flex cursor-pointer items-center justify-between gap-4 border-b border-[#1A1A1A] py-6 transition-all duration-300 hover:bg-[#FF0000] md:py-8 md:hover:-mx-6 md:hover:px-6"
+                        className="group flex cursor-pointer items-center justify-between gap-4 border-b border-[#1A1A1A] py-5 transition-all duration-300 hover:bg-[#FF0000] md:py-8 md:hover:-mx-6 md:hover:px-6"
                       >
                         <span className="min-w-0 break-words text-lg font-bold leading-snug tracking-tight text-[#FFFFFF] transition-colors sm:text-xl md:text-[1.35rem]">
                           {item}
@@ -328,7 +343,7 @@ export default function Services() {
               {i !== capabilities.length - 1 && (
                 <div className="mt-24 w-full">
                   <div className="w-full border-t border-[#1A1A1A]" />
-                  <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-8 text-sm uppercase tracking-[0.14em] opacity-60 sm:flex-row sm:items-center sm:justify-between lg:px-12">
+                  <div className="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-7 text-xs uppercase tracking-[0.14em] opacity-60 sm:flex-row sm:items-center sm:justify-between sm:px-6 sm:text-sm lg:px-12">
                     <span>Capability Stack</span>
                     <span>{cap.title}</span>
                   </div>

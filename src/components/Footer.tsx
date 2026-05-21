@@ -84,26 +84,16 @@ export default function Footer() {
   }, [isVisible, prefersReducedMotion]);
 
   return (
-    <footer id="contact" className="overflow-hidden border-t border-[#1A1A1A] bg-[#080808] px-6 pb-12 pt-32 lg:px-12">
+    <footer id="contact" className="overflow-hidden border-t border-[#1A1A1A] bg-[#080808] px-5 pb-10 pt-24 sm:px-6 sm:pb-12 sm:pt-32 lg:px-12">
       <div className="relative flex flex-col items-center">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.12, 0.75, 0.4, 1] }}
-          className="mb-8 max-w-3xl text-center text-[10px] font-bold uppercase leading-relaxed tracking-[0.18em] text-[#FFFFFF]/58 sm:tracking-[0.28em]"
+          className="mb-6 max-w-3xl text-center text-[10px] font-bold uppercase leading-relaxed tracking-[0.16em] text-[#FFFFFF]/58 sm:mb-8 sm:tracking-[0.28em]"
         >
-          Available for select product builds, technical partnerships, and AI-enabled workflows.
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.1, ease: [0.12, 0.75, 0.4, 1] }}
-          className="mb-12 max-w-2xl text-center text-base font-medium leading-relaxed text-[#FFFFFF]/62 md:text-lg"
-        >
-          Bring the product challenge, platform idea, or automation bottleneck. I will help turn it into a fast, polished, production-ready experience.
+          Available for full-stack product builds, AI workflow automation, and performance-focused frontend systems.
         </motion.p>
 
         <motion.a
@@ -114,18 +104,31 @@ export default function Footer() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.12, 0.75, 0.4, 1] }}
           onClick={!prefersReducedMotion ? () => setScrambleTick((value) => value + 1) : undefined}
-          className="group relative mb-12 inline-block w-full text-center"
+          className="group relative mb-8 inline-block w-full text-center sm:mb-10"
         >
-          <span className="block whitespace-nowrap text-center text-[16vw] font-bold uppercase leading-[0.82] tracking-tight text-[#FFFFFF] transition-colors duration-500 ease-out group-hover:text-[#FF0000]">
+          <span className="block text-center text-[clamp(3rem,15vw,12rem)] font-bold uppercase leading-[0.86] tracking-tight text-[#FFFFFF] transition-colors duration-500 ease-out group-hover:text-[#FF0000] md:whitespace-nowrap md:leading-[0.82]">
             {prefersReducedMotion ? "Let's Build" : scrambledLabel}
           </span>
         </motion.a>
 
-        <div className="mt-24 flex w-full flex-col items-center justify-between gap-4 text-center text-xs font-bold uppercase tracking-[0.14em] text-[#FFFFFF]/55 md:mt-32 md:flex-row md:text-left">
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.12, 0.75, 0.4, 1] }}
+          className="max-w-2xl text-center text-sm font-medium leading-relaxed text-[#FFFFFF]/62 sm:text-base md:text-lg"
+        >
+          Bring the product challenge, data pipeline, or LLM workflow. I will help turn it into a fast, polished, production-ready system.
+        </motion.p>
+
+        <div className="mt-16 flex w-full flex-col items-center justify-between gap-4 text-center text-[11px] font-bold uppercase tracking-[0.12em] text-[#FFFFFF]/55 sm:mt-24 sm:text-xs sm:tracking-[0.14em] md:mt-28 md:flex-row md:text-left">
           <p>© {new Date().getFullYear()} Kent Levi Cadungog.</p>
           <div className="mt-4 flex flex-wrap justify-center gap-6 md:mt-0">
-            <a href="#" className="transition-colors hover:text-white">
+            <a href="https://linkedin.com/in/kent-levi-cadungog" target="_blank" rel="noreferrer" className="transition-colors hover:text-white">
               LinkedIn
+            </a>
+            <a href="tel:+639562910509" className="transition-colors hover:text-white">
+              Phone
             </a>
             <a href="mailto:kentlevicadungog@gmail.com" className="transition-colors hover:text-white">
               Email
