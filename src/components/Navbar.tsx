@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const navItems = [
   { label: 'Work', href: '#work' },
@@ -11,10 +12,17 @@ const navItems = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('work');
+  const location = useLocation();
+  const isHome = location.pathname === '/';
+  const hrefPrefix = isHome ? '' : '/';
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+
+      if (!isHome) {
+        return;
+      }
 
       const sectionIds = navItems.map((item) => item.href.replace('#', ''));
       let current: string | undefined;
@@ -37,7 +45,7 @@ export default function Navbar() {
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isHome]);
 
   return (
     <motion.nav
@@ -48,7 +56,7 @@ export default function Navbar() {
         scrolled ? 'py-4' : 'py-6'
       }`}
     >
-      <a href="#" className="group flex items-center gap-3 mix-blend-difference">
+      <a href="/" className="group flex items-center gap-3 mix-blend-difference">
         <span className="h-2.5 w-2.5 bg-[#FF0000] transition-transform duration-300 group-hover:scale-150" />
         <span className="whitespace-nowrap text-xl font-bold uppercase tracking-tighter text-white md:text-2xl">
           Kent.
@@ -63,7 +71,7 @@ export default function Navbar() {
           return (
             <a
               key={item.href}
-              href={item.href}
+              href={`${hrefPrefix}${item.href}`}
               className={`relative text-[11px] font-bold uppercase tracking-[0.22em] text-white transition-opacity duration-300 ${
                 isActive ? 'opacity-100' : 'opacity-48 hover:opacity-100'
               }`}
@@ -80,7 +88,7 @@ export default function Navbar() {
       </div>
 
       <a
-        href="#contact"
+        href={`${hrefPrefix}#contact`}
         className="rounded-full border border-white/45 px-5 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white transition-colors duration-300 hover:border-[#FF0000] hover:bg-[#FF0000] md:px-6"
       >
         Start
