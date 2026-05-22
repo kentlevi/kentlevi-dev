@@ -116,7 +116,35 @@ export default function ProjectModal({ item, onClose }: { item: WorkItem; onClos
             </ul>
           </div>
 
-          <div className="mt-7 flex flex-wrap gap-2">
+          {item.colors && item.colors.length > 0 && (
+            <div className="mt-8">
+              <p className="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.28em] text-white/45">
+                Color Palette
+              </p>
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-5">
+                {item.colors.map((color) => (
+                  <div
+                    key={color.hex}
+                    className="group border border-white/10 bg-white/[0.02] p-2 transition-colors hover:border-white/25"
+                  >
+                    <div
+                      className="h-14 w-full border border-white/8"
+                      style={{ backgroundColor: color.hex }}
+                      aria-hidden
+                    />
+                    <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.14em] text-white/75">
+                      {color.name}
+                    </p>
+                    <p className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.16em] text-white/40">
+                      {color.hex}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="mt-8 flex flex-wrap gap-2">
             {item.tags.map((tag) => (
               <span
                 key={tag}

@@ -10,6 +10,7 @@ export type WorkItem = {
   summary: string;
   description: string;
   highlights: string[];
+  colors?: { hex: string; name: string }[];
   featured?: boolean;
 };
 
@@ -33,6 +34,13 @@ export const workItems: WorkItem[] = [
       'Built reusable product, cart, and merchandising UI consumed across the site',
       'Coordinated with backend and design to ship features ahead of public launch',
     ],
+    colors: [
+      { hex: '#F7D03C', name: 'Brand Yellow' },
+      { hex: '#000000', name: 'Ink Black' },
+      { hex: '#FFFFFF', name: 'Paper White' },
+      { hex: '#2A2A2B', name: 'Charcoal' },
+      { hex: '#E9E9EA', name: 'Soft Grey' },
+    ],
     featured: true,
   },
   {
@@ -53,6 +61,13 @@ export const workItems: WorkItem[] = [
       'Resolve responsive and cross-browser issues without regressing localized SEO',
       'Keep dynamic metadata and indexing behavior stable across regional sites',
       'Coordinate sitewide design tweaks while preserving per-market overrides',
+    ],
+    colors: [
+      { hex: '#D52941', name: 'Signal Red' },
+      { hex: '#FFF176', name: 'Accent Yellow' },
+      { hex: '#333333', name: 'Body Dark' },
+      { hex: '#FFFFFF', name: 'Surface' },
+      { hex: '#C4C4C4', name: 'Mid Grey' },
     ],
     featured: true,
   },
@@ -75,6 +90,13 @@ export const workItems: WorkItem[] = [
       'Tuned motion and asset loading for stable performance on lower-end devices',
       'Wrote the editorial copy and pacing alongside the technical implementation',
     ],
+    colors: [
+      { hex: '#0A0A0A', name: 'Deep Space' },
+      { hex: '#C7522A', name: 'Mars Rust' },
+      { hex: '#E8D5B7', name: 'Sand' },
+      { hex: '#6BB6C9', name: 'Descent Cyan' },
+      { hex: '#1A1A1A', name: 'Orbit Black' },
+    ],
     featured: true,
   },
   {
@@ -96,19 +118,26 @@ export const workItems: WorkItem[] = [
       'Tuned typography and spacing for an unhurried, ritualistic reading rhythm',
       'Integrated anchor navigation across story, products, process, and contact',
     ],
+    colors: [
+      { hex: '#18100A', name: 'Espresso' },
+      { hex: '#322318', name: 'Roast' },
+      { hex: '#D4AF37', name: 'Vesper Gold' },
+      { hex: '#C5A059', name: 'Amber' },
+      { hex: '#F4ECDE', name: 'Cream' },
+    ],
   },
   {
     slug: 'cozina-de-marray',
     title: 'COZINA DE MARRAY',
     platform: 'Premium Grill & Bar',
-    tags: ['Vue.js', 'Nuxt.js', 'Hospitality UI'],
+    tags: ['React', 'Vite', 'Tailwind', 'Hospitality UI'],
     href: 'https://cozina-marray-v2.vercel.app/',
     image: '/images/portfolio/cozina-de-marray.jpg',
     year: '2025',
     role: 'Solo Build',
     summary: 'Upscale grill and bar concept site positioning the venue as elevated casual dining.',
     description:
-      'Cozina de Marray is a premium grill and bar concept site built to position the venue as elevated casual dining. The storefront centers on atmosphere — large hero imagery, menu highlights, and a reservation-friendly layout — built on a Nuxt foundation that keeps content easy to update season to season.',
+      'Cozina de Marray is a premium grill and bar concept site built to position the venue as elevated casual dining. The storefront centers on atmosphere — large hero imagery, menu highlights, and a reservation-friendly layout — built on a React + Vite foundation that keeps content easy to update season to season.',
     highlights: [
       'Defined the visual identity through hero imagery, type pairings, and color',
       'Structured menu sections so seasonal items can be swapped without dev time',
@@ -116,12 +145,19 @@ export const workItems: WorkItem[] = [
       'Optimized hero and gallery imagery for fast first paint on hospitality traffic',
       'Set up the site to scale into a multi-location structure if the brand grows',
     ],
+    colors: [
+      { hex: '#1A1A1A', name: 'Charcoal' },
+      { hex: '#B8421F', name: 'Ember' },
+      { hex: '#6B0F1A', name: 'Wine' },
+      { hex: '#C9A961', name: 'Brass' },
+      { hex: '#F5E6D3', name: 'Linen' },
+    ],
   },
   {
     slug: 'habibi-shaun-rentals',
     title: 'HABIBI & SHAUN RENTALS',
     platform: 'Siquijor Island Vehicle Rentals',
-    tags: ['Vue.js', 'Nuxt.js', 'Booking UI', 'Travel'],
+    tags: ['React', 'Vite', 'Tailwind', 'Booking UI'],
     href: 'https://habibi-rentals-platform.vercel.app/',
     image: '/images/portfolio/habibi-shaun.jpg',
     year: '2025',
@@ -136,25 +172,66 @@ export const workItems: WorkItem[] = [
       'Wired Messenger and WhatsApp as the primary booking handoff for low-friction conversion',
       'Tuned mobile usability for travelers arriving by boat with limited time on the ground',
     ],
+    colors: [
+      { hex: '#1A2942', name: 'Island Navy' },
+      { hex: '#4A5A75', name: 'Slate' },
+      { hex: '#6B8BB5', name: 'Sky' },
+      { hex: '#E8E5DE', name: 'Sand' },
+      { hex: '#FFFFFF', name: 'Surface' },
+    ],
   },
   {
     slug: 'solenne-bay',
     title: 'SOLENNE BAY',
     platform: 'Luxury Coastal Resort',
-    tags: ['Vue.js', 'Nuxt.js', 'Hospitality UI'],
+    tags: ['React', 'Vite', 'Tailwind', 'Hospitality UI'],
     href: 'https://solenne-v2.vercel.app/',
     image: '/images/portfolio/solenne-bay.jpg',
     year: '2025',
     role: 'Solo Build',
     summary: 'Luxury coastal resort site targeting affluent travelers seeking upscale relaxation.',
     description:
-      'Solenne Bay is a luxury coastal resort site positioning a premium beachfront destination for affluent travelers. The frontend leans on cinematic imagery, refined typography, and a structure that supports accommodations, dining, amenities, and booking-ready CTAs — all on a Nuxt foundation tuned for fast loads on travel traffic.',
+      'Solenne Bay is a luxury coastal resort site positioning a premium beachfront destination for affluent travelers. The frontend leans on cinematic imagery, refined typography, and a structure that supports accommodations, dining, amenities, and booking-ready CTAs — all on a React + Vite foundation tuned for fast loads on travel traffic.',
     highlights: [
       'Designed a cinematic hero and gallery system around resort photography',
       'Structured accommodations, dining, and amenities as independent content blocks',
       'Built booking-ready CTAs that can plug into a PMS or third-party reservation tool',
       'Optimized image delivery so travel traffic loads quickly on mobile networks',
       'Set up the layout so seasonal campaigns can be swapped without code changes',
+    ],
+    colors: [
+      { hex: '#F4EFE9', name: 'Coastal Cream' },
+      { hex: '#D4C5A9', name: 'Sand' },
+      { hex: '#8FA68E', name: 'Sage' },
+      { hex: '#2C5F7E', name: 'Ocean' },
+      { hex: '#1A2E33', name: 'Deep Tide' },
+    ],
+  },
+  {
+    slug: 'rsr-smart-attendance',
+    title: 'RSR SMART ATTENDANCE',
+    platform: 'Workforce Attendance Platform',
+    tags: ['React', 'Vite', 'Firebase', 'Face Recognition'],
+    href: 'https://rsr-smart-attendance.onrender.com/',
+    image: '/images/portfolio/rsr-smart-attendance.jpg',
+    year: '2025',
+    role: 'Solo Build',
+    summary: 'Three-portal attendance system for RSR Engineering — Time Clock, Employee Portal, and Management.',
+    description:
+      'RSR Smart Attendance is a workforce attendance platform built for RSR Engineering, structured around three distinct portals: Time Clock for recording attendance and work hours, Employee Portal for profile, leaves, and timesheets, and Management for admin oversight, employees, and system settings. The system combines face recognition, QR check-in, and geolocation to log staff time. Built as a React + Vite SPA on Firebase/Firestore and deployed on Render.',
+    highlights: [
+      'Designed three role-based portals — Time Clock, Employee, and Management — from one codebase',
+      'Implemented face-recognition check-in alongside QR and geolocation fallbacks',
+      'Wired Firestore as the live data layer for attendance, employees, leaves, and payroll',
+      'Built employee self-service for profile, leaves, and timesheet review',
+      'Added CSV export and reporting charts for HR and payroll reconciliation',
+    ],
+    colors: [
+      { hex: '#1F7A3E', name: 'RSR Green' },
+      { hex: '#C7E5CB', name: 'Mint' },
+      { hex: '#F0F8F2', name: 'Page Mint' },
+      { hex: '#2C3E50', name: 'Slate Ink' },
+      { hex: '#FFFFFF', name: 'Surface' },
     ],
   },
 ];
